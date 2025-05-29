@@ -1,0 +1,24 @@
+.block_page_auth{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /* стили для картинки на заднем фоне */
+    background-image: url("../../../images/trainy.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.card_block{
+    width: 300px;
+    height: auto;
+}
+.Auth_button{
+    width: 100%;
+    margin: 5px;
+}
+.Auth_Caps_text{
+
+    color: red;
+}

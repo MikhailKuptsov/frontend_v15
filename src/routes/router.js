@@ -7,8 +7,8 @@ export default function AppRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path='/Test_page' element={<TestPage/>} />
-                <Route path='*' element={<AuthPage/>}/>
+                <Route path='*' element={<TestPage/>} />
+                {/* <Route path='*' element={<AuthPage/>}/> */}
                 <Route path='/Auth_page'element={<AuthPage/>}/>
             </Routes>
         </BrowserRouter>
