@@ -3,6 +3,8 @@ import { Button, Card, Form, Alert } from "react-bootstrap";
 
 import Warning_password from "./WarningPassword";
 
+import ErrorMessage from "../../Reuse/ErrorMessage";
+
 
 import "../../../styles/Personal/AuthPage/AuthPage.css"
 
@@ -18,7 +20,7 @@ export default function LoginForm(){
         setData({...data, [event.target.name]:event.target.value})
     }
     //вывод компоента с ошибкой
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(true);
 
     //сюда вставить API функцию и передать data
     const handleSubmit=(event)=>{
@@ -43,9 +45,7 @@ export default function LoginForm(){
                     {
                         // поле для вывода ошибки при отправке данных
                         error && (
-                        <Alert variant='danger'>
-                        This is a  alert—check it out!
-                        </Alert>
+                        <ErrorMessage message={"ошибка сервера"} num_code={"500"}/>
                         )
                     }
                     <Form onSubmit={handleSubmit}>
