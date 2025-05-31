@@ -51,7 +51,7 @@ export default function LoginForm(){
             setIsLoading(false);
             // console.log(result.data)
             console.log("Post_запрос выполнен")
-            navigate('/Main_page', { replace: true })
+            navigate('/Main_page')
         }
 
     }

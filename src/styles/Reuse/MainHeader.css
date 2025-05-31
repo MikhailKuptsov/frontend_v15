@@ -1,0 +1,28 @@
+/* src/Styles/MainHeader.css */
+.main-header {
+    background-color: #1c3572 !important; /* Синий цвет из Hex-кода */
+  }
+  
+  .main-header .navbar-brand,
+  .main-header .nav-link,
+  .main-header .navbar-text {
+    color: white !important; /* Белый цвет текста */
+  }
+  
+  .main-header .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Светлая граница для кнопки меню */
+  }
+  
+  .main-header .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .main-header .nav-link:hover {
+    color: #c9d1f9 !important; /* Светло-синий при наведении */
+    text-decoration: underline;
+  }
+  
+  /* .main-header .navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+  } */

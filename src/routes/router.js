@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 import TestPage from '../pages/TestPage'
 import AuthPage from '../pages/AuthPage/AuthPage'
+import MainPage from '../pages/MainPage/MainPage'
 
 export default function AppRoutes(){
     return(
@@ -13,6 +14,7 @@ export default function AppRoutes(){
                 <Route path='/Test_page' element={<TestPage/>} />
                 <Route path='*' element={<AuthPage/>}/>
                 <Route path='/Auth_page'element={<AuthPage/>}/>
+                <Route path='/Main_page' element={<MainPage/>}/>
             </Routes>
         </BrowserRouter>
     )
