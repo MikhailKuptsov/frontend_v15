@@ -1,0 +1,9 @@
+.Dropdown_block_choose_button{
+    width:100%
+}
+.Dropdown_block_choose_block{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #1c3572 ;
+    border-radius: 10px;
+}

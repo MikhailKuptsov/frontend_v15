@@ -1,9 +1,11 @@
 import { Row, Col, Button, Accordion } from 'react-bootstrap';
+import "../../styles/Reuse/Dropdown_block_choose.css"
 
 export default function Dropdown_block_choose({info}){
     return(
         <>
-        <Accordion defaultActiveKey="0">
+        <div >
+        <Accordion defaultActiveKey="0" className='Dropdown_block_choose_block'>
             <Accordion.Item eventKey="1">
               <Accordion.Header>
                 {/* Заголовок */}
@@ -13,10 +15,11 @@ export default function Dropdown_block_choose({info}){
                     </Col>
               </Accordion.Header >
               <Accordion.Body >
-                <Button size='lg' style={{width:"100%"}} variant='outline-dark' href={info.link_page}>Выбрать</Button>
+                <Button size='lg' className='Dropdown_block_choose_button' variant='outline-dark' href={info.link_page}>Выбрать</Button>
               </Accordion.Body>
             </Accordion.Item>
             </Accordion>
+          </div>
         </>
     )
 }

@@ -1,0 +1,26 @@
+//компоненты
+import MainHeader from "../../components/Reuse/MainHeader";
+import UnderBar from "../../components/Reuse/UnderBar";
+import AdminUserCombine from "../../components/Personal/AdminPageUsers/AdminUserCombine"
+
+//Стили
+import "../../styles/Personal/AdminPage/AdminPage.css"
+
+//тестовые JSON-данные
+import UserFULLdata from "../../test_data/AdminPage/UserFULLdata.json"
+
+export default function AdminPageUsers(){
+    const users_all_data = UserFULLdata;
+    return(
+        <>
+        <MainHeader/>
+        <div className="AdminPage_Block">
+            <div className="container mt-4">
+                <h1 className="mb-4">Управление пользователями</h1>
+                <AdminUserCombine users_all_data={users_all_data} />
+            </div>
+        </div>
+        <UnderBar/>
+        </>
+    )
+}

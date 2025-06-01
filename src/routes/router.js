@@ -6,6 +6,10 @@ import TestPage from '../pages/TestPage'
 import AuthPage from '../pages/AuthPage/AuthPage'
 import MainPage from '../pages/MainPage/MainPage'
 
+import AdminPage from '../pages/AdminPage/AdminPage'
+import AdminPageUsers from '../pages/AdminPage/AdminPageUsers'
+import AdminPageFacilites from '../pages/AdminPage/AdminPageFacilites'
+
 export default function AppRoutes(){
     return(
         <BrowserRouter>
@@ -15,6 +19,10 @@ export default function AppRoutes(){
                 <Route path='*' element={<AuthPage/>}/>
                 <Route path='/Auth_page'element={<AuthPage/>}/>
                 <Route path='/Main_page' element={<MainPage/>}/>
+
+                <Route path='/Admin_page' element={<AdminPage/>}/>
+                <Route path='/Admin_page_users' element={<AdminPageUsers/>}/>
+                <Route path='/Admin_page_facilites' element={<AdminPageFacilites/>}/>
             </Routes>
         </BrowserRouter>
     )

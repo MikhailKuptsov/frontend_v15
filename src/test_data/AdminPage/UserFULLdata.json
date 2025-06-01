@@ -1,0 +1,62 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@example.com",
+        "telegram": null,
+        "name": "a",
+        "surname": "Админов",
+        "patronymic": null,
+        "role": "Admin",
+        "job_title": null
+    },
+    {
+        "username": "test",
+        "email": "test_new@example.com",
+        "telegram": "test_new",
+        "name": "Тестировщик",
+        "surname": "Тестов",
+        "patronymic": null,
+        "role": "User",
+        "job_title": "Никто"
+    },
+    {
+        "username": "test2",
+        "email": "test2@example.com",
+        "telegram": "@test2",
+        "name": "Test",
+        "surname": "Тест2",
+        "patronymic": null,
+        "role": "Admin",
+        "job_title": null
+    },
+    {
+        "username": "User_user",
+        "email": "User_user_@mail.ru",
+        "telegram": null,
+        "name": "lolita",
+        "surname": "mind",
+        "patronymic": null,
+        "role": "User",
+        "job_title": null
+    },
+    {
+        "username": "User_Moderator",
+        "email": "User_Moderator_@mail.ru",
+        "telegram": null,
+        "name": "andru",
+        "surname": "mind",
+        "patronymic": null,
+        "role": "User",
+        "job_title": null
+    },
+    {
+        "username": "User_Auditor",
+        "email": "User_Auditor_@mail.ru",
+        "telegram": null,
+        "name": "Kelvin",
+        "surname": "repo",
+        "patronymic": null,
+        "role": "User",
+        "job_title": null
+    }
+]
