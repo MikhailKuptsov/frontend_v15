@@ -5,6 +5,8 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 // import { logoutUser } from '../../api/authLogout';
 import LoadingStuck from './LoadingStuck';
 
+import logo from "../../images/logo/logo1.png"
+
 // Импорт стилей
 import "../../styles/Reuse/MainHeader.css"
 
@@ -12,7 +14,8 @@ const MainHeader = () => {
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const userData = JSON.parse(sessionStorage.getItem('user_data'));
-  const isAdmin = userData?.role === 'Admin';
+  // const isAdmin = userData?.role === 'Admin';
+  const isAdmin = true;
 
 
   const handleLogout = async () => {
@@ -36,14 +39,22 @@ const MainHeader = () => {
   return (
     <Navbar expand="lg" className="main-header">
       <Container>
-        <Navbar.Brand>My App</Navbar.Brand>
+        <Navbar.Brand >
+          <img 
+              src={logo}
+              height="60"
+              width="auto"
+              className="d-inline-block aline-top"
+              alt="Logo" 
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate('/Main_page')}>Главная страница</Nav.Link>
-            <Nav.Link >Профиль</Nav.Link>
+            <Nav.Link >Изменить пароль</Nav.Link>
             {isAdmin && (
-              <Nav.Link onClick={() => navigate('/admin')}>Администратор</Nav.Link>
+              <Nav.Link onClick={() => navigate('/Admin_page')}>Администратор</Nav.Link>
             )}
           </Nav>
           <Nav>

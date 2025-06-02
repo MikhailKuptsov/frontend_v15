@@ -1,7 +1,10 @@
 import MainHeader from "../../components/Reuse/MainHeader"
 import UnderBar from "../../components/Reuse/UnderBar"
 import { Container } from 'react-bootstrap';
+
+
 import Dropdown_block_choose from "../../components/Reuse/Dropdown_block_choose";
+import DropdownBlockList from "../../components/Reuse/Dropdown_block_list";
 
 import "../../styles/Personal/MainPage/MainPage.css"
 
@@ -15,18 +18,30 @@ export default function MainPage(){
         <div className="MainPage_Block">
             <Container className="mt-4">
             {/* <Audit_dropdown_info /> */}
-            <Dropdown_block_choose 
+            <DropdownBlockList 
                 info={{
-                lable: "Организовать аудит", 
-                curent_name: "Изменение и создание новых разделов, подразделов, пунктах в аудитах и заполнение сроков", 
-                link_page: "/planning"
+                lable: "Мои аудиты", 
+                curent_name: "список назначенных аудитов",
+                }}
+            />
+            <DropdownBlockList
+                info={{
+                lable: "Список запланированных аудитов", 
+                curent_name: "список запланированных аудитов", 
                 }}
             />
             <Dropdown_block_choose 
                 info={{
-                lable: "Посмотреть", 
-                curent_name: "fffffff", 
-                link_page: "/track"
+                lable: "Организовать аудит", 
+                curent_name: "Организация аудита", 
+                link_page: "/Planing_audit_page"
+                }}
+            />
+            <Dropdown_block_choose 
+                info={{
+                lable: "История закрытых аудитов", 
+                curent_name: "Список закрытых аудитов", 
+                link_page: "/History_audit_page"
                 }}
             />
 
