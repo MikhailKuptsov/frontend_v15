@@ -12,6 +12,8 @@ import DropdownBlockList from "../../components/Reuse/Dropdown_block_list";
 import "../../styles/Personal/MainPage/MainPage.css"
 
 export default function MainPage(){
+    const userDataInfo=JSON.parse(sessionStorage.getItem("user_data"))
+    // console.log(userDataInfo)
     return(
         <>
         <MainHeader/>
@@ -31,7 +33,7 @@ export default function MainPage(){
                 }}
             /> */}
             <div className="Dropdown_block_choose_block">
-                <UserDataDisplay/>
+                <UserDataDisplay userData={userDataInfo}/>
             </div>
             <div className="Dropdown_block_choose_block">
                 <DropdownBlockAudits/>
