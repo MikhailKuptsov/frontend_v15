@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 // import { logoutUser } from '../../api/authLogout';
 import LoadingStuck from './LoadingStuck';
+import ChangePasswordModals from './ChangePasswordModals';
 
 import logo from "../../images/logo/logo1.png"
 
@@ -52,7 +53,8 @@ const MainHeader = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate('/Main_page')}>Главная страница</Nav.Link>
-            <Nav.Link >Изменить пароль</Nav.Link>
+            {/* <Nav.Link >Изменить пароль</Nav.Link> */}
+            <ChangePasswordModals/>
             {isAdmin && (
               <Nav.Link onClick={() => navigate('/Admin_page')}>Администратор</Nav.Link>
             )}
