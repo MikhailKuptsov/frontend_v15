@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PlaningAuditPageStructure from './PlaningAuditPageStructure';
 
+import LoadingStuck from '../../Reuse/LoadingStuck';
+
 
 import MainFormData from '../../../test_data/PlaningAuditPage/MainForm_data.json';
 import FormTestData from '../../../test_data/PlaningAuditPage/FormTest_Data.json';
@@ -44,7 +46,8 @@ const PlaningAuditPageBlock = () => {
   };
 
   if (!mainData || !testData || !userOptions.length || !facilityOptions.length) {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return(<LoadingStuck/>)
   }
 
   return (

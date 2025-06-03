@@ -54,6 +54,8 @@ const DropdownBlockPlannedAudits = () => {
                         variant="primary" 
                         onClick={fetchAudits}
                         disabled={loading}
+                        size="lg"
+                        style={{margin:"5px", width:"100%"}}
                         className="mb-3"
                     >
                         {loading ? 'Загрузка...' : 'Получить/Обновить данные'}

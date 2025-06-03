@@ -70,11 +70,13 @@ export default function AuditCard_v2({
                         <p>Окончание: {formatDate(end_datetime)}</p>
                         <p>Создан: {formatDate(created_at)}</p>
                     </div>
-                    <div className="d-flex gap-2">
+                    <div>
                         {change_activity && (
                             <Button 
                                 variant="outline-primary" 
                                 onClick={handleStatusChange}
+                                style={{margin:"5px", width:"100%"}}
+                                size='lg'
                             >
                                 Изменить статус
                             </Button>
@@ -83,6 +85,8 @@ export default function AuditCard_v2({
                             <Button 
                                 variant="outline-success"
                                 onClick={handleViewResults}
+                                style={{margin:"5px", width:"100%"}}
+                                size='lg'
                             >
                                 Посмотреть результаты
                             </Button>
@@ -90,6 +94,8 @@ export default function AuditCard_v2({
                         <Button 
                             variant="primary"
                             onClick={handleSelectAudit}
+                            style={{margin:"5px", width:"100%"}}
+                            size='lg'
                         >
                             Выбрать
                         </Button>

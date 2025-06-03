@@ -40,13 +40,18 @@ export default function DropdownBlockAudits() {
     };
 
     return (
-        <Accordion defaultActiveKey="0">
+        <Accordion defaultActiveKey="p">
             <Accordion.Item eventKey="0">
                 <Accordion.Header>
                     <h2>Мои аудиты</h2></Accordion.Header>
                 <Accordion.Body>
-                    <Button onClick={fetchAuditData} variant="primary">
-                        получить/Обновить данные об аудитах
+                    <Button 
+                    onClick={fetchAuditData} 
+                    variant="primary"
+                    style={{marginBottom:"10px", width:"100%"}}
+                    size='lg'
+                    >
+                        Получить/Обновить данные об аудитах
                     </Button>
                     {loading && <LoadingStuck />}
                     {dataLoaded && (

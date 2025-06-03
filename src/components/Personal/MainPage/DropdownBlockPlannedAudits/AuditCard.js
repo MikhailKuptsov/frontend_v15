@@ -58,7 +58,8 @@ const AuditCard = ({
                         <Button 
                             variant="danger" 
                             onClick={handleDeleteClick}
-                            size="sm"
+                            size="lg"
+                            style={{margin:"5px", width:"100%"}}
                         >
                             Удалить аудит
                         </Button>
