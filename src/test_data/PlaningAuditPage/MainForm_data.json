@@ -1,0 +1,11 @@
+{
+  "name": "string",
+  "description": "string",
+  "facility_id": "DropdownChoice",
+  "start_datetime": "date_time",
+  "end_datetime": "date_time",
+  "activation": "choice_start",
+  "results_access": "choice_true_false",
+  "audit_leader": "DropdownFIO",
+  "test_id": "string"
+}

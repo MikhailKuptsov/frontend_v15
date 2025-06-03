@@ -2,7 +2,8 @@ import MainHeader from "../../components/Reuse/MainHeader"
 import UnderBar from "../../components/Reuse/UnderBar"
 import { Container } from 'react-bootstrap';
 
-
+import DropdownBlockAudits from "../../components/Personal/MainPage/DropdownBlockAudits/DropdownBlockAudits";
+import DropdownBlockPlannedAudits from "../../components/Personal/MainPage/DropdownBlockPlannedAudits/DropdownBlockPlannedAudits";
 import DropdownBlockChoose from "../../components/Reuse/Dropdown_block_choose";
 import DropdownBlockList from "../../components/Reuse/Dropdown_block_list";
 
@@ -18,18 +19,24 @@ export default function MainPage(){
         <div className="MainPage_Block">
             <Container className="mt-4">
             {/* <Audit_dropdown_info /> */}
-            <DropdownBlockList 
+            {/* <DropdownBlockList 
                 info={{
                 lable: "Мои аудиты", 
                 curent_name: "список назначенных аудитов",
                 }}
-            />
-            <DropdownBlockList
+            /> */}
+            {/* <DropdownBlockList
                 info={{
                 lable: "Список запланированных аудитов", 
                 curent_name: "список запланированных аудитов", 
                 }}
-            />
+            /> */}
+            <div className="Dropdown_block_choose_block">
+                <DropdownBlockAudits/>
+            </div>
+            <div className="Dropdown_block_choose_block">
+                <DropdownBlockPlannedAudits/>
+            </div>
             <DropdownBlockChoose 
                 info={{
                 lable: "Организовать аудит", 
