@@ -23,13 +23,16 @@ export default function AppRoutes(){
             <Routes>
                 {/* <Route path='*' element={<TestPage/>} /> */}
                 <Route path='/Test_page' element={<TestPage/>} />
+
                 <Route path='*' element={<AuthPage/>}/>
+                
                 <Route path='/Auth_page'element={<AuthPage/>}/>
                 <Route path='/Main_page' element={<MainPage/>}/>
 
                 <Route path='/Admin_page' element={<AdminPage/>}/>
                 <Route path='/Admin_page_users' element={<AdminPageUsers/>}/>
                 <Route path='/Admin_page_facilites' element={<AdminPageFacilites/>}/>
+
                 <Route path='/History_audit_page' element={<HistoryAuditPage/>}/>
                 <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>
                 <Route path='/Planing_audit_page' element={<PlaningAuditPage/>}/>

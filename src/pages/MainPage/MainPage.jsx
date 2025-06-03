@@ -15,9 +15,6 @@ export default function MainPage(){
     return(
         <>
         <MainHeader/>
-        {/* <div style={{height:"100vh"}}>
-            <h1>Главная страница</h1>
-        </div> */}
         <div className="MainPage_Block">
             <Container className="mt-4">
             {/* <Audit_dropdown_info /> */}

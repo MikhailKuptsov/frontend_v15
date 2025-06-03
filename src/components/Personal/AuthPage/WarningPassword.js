@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/Personal/AuthPage/AuthPage.css"
 
+import { tecnical_info_connect } from '../../../constans/information/tecnical_expert';
+
 function WarningPassword() {
   const [show, setShow] = useState(false);
 
@@ -19,7 +21,7 @@ function WarningPassword() {
         <Modal.Header closeButton>
           <Modal.Title>Восстановление пароля</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Добрый день. Чтобы восстановить пароль обратитесь к администратору по ссылке:</Modal.Body>
+        <Modal.Body>Добрый день. Чтобы восстановить пароль обратитесь к администратору по ссылке: {tecnical_info_connect.Fixer_email}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary"  onClick={handleClose}>
             Закрыть

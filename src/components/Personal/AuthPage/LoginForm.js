@@ -51,6 +51,7 @@ export default function LoginForm(){
             setIsLoading(false);
             // console.log(result.data)
             console.log("Post_запрос выполнен")
+            console.log(sessionStorage.getItem('user_data'))
             navigate('/Main_page')
         }
 
