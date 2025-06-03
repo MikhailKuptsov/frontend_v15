@@ -1,9 +1,26 @@
 import { BaseUrl } from "../constans/Main_api_url"
 import { Api_auth } from "../constans/Auth_api_url"
 import ArrayToString from "../api/api_url_connection"
+import ProcessData from "../components/Personal/PlaningAuditPage/ProcessData"
 
+// const jsonData = {
+//     "data": {
+//         "Менеджмент": {
+//             "M1 Достижение ключевых показателей эффективности завода": {},
+//             "M2 Эталонный поток изготовления продукции": {}
+//         },
+//         "Менеджмент 2": {
+//             "M1 Достижение ключевых показателей эффективности завода": {},
+//             "M2 Эталонный поток изготовления продукции": {},
+//             "M5 Эталонный поток изготовления продукции": {}
+//         }
+//     }
+// }
 
 function TestPage(){
+    // const dataFromJson = jsonData.data;
+    // const processedData = ProcessData(dataFromJson);
+    // console.log(processedData);
     
     return(
         <>

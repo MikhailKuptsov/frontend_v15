@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/Personal/AuthPage/AuthPage.css"
 
-function Warning_password() {
+function WarningPassword() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -30,4 +30,4 @@ function Warning_password() {
   );
 }
 
-export default Warning_password;
+export default WarningPassword;

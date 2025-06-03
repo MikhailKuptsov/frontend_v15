@@ -1,7 +1,7 @@
 import { Row, Col, Button, Accordion } from 'react-bootstrap';
 import "../../styles/Reuse/Dropdown_block_choose.css"
 
-export default function Dropdown_block_choose({info}){
+export default function DropdownBlockChoose({info}){
     return(
         <>
         <div >

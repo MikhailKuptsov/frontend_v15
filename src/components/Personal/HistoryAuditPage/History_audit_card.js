@@ -31,7 +31,7 @@ const HistoryAuditCard = ({
 
     // Обработчик клика по кнопке "Выбрать"
     const handleSelectClick = () => {
-        navigate(`/history/${audit_id}`);
+        navigate(`/Audit_result/${audit_id}`);
     };
 
     return (

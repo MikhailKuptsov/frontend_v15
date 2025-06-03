@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 
 import "../../../styles/Personal/AuthPage/AuthPage.css"
 
-import Warning_password from "./WarningPassword";
+import WarningPassword from "./WarningPassword";
 import ErrorMessage from "../../Reuse/ErrorMessage";
 import LoadingStuck from "../../Reuse/LoadingStuck";
 
@@ -112,7 +112,7 @@ export default function LoginForm(){
                         </Form.Group>
                         <Button size="lg" className="Auth_button" type="submit">Войти</Button>
                     </Form>
-                    <Warning_password/>
+                    <WarningPassword/>
                 </Card.Body>
             </Card>
         </div>

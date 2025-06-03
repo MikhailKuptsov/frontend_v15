@@ -3,7 +3,7 @@ import UnderBar from "../../components/Reuse/UnderBar"
 import { Container } from 'react-bootstrap';
 
 
-import Dropdown_block_choose from "../../components/Reuse/Dropdown_block_choose";
+import DropdownBlockChoose from "../../components/Reuse/Dropdown_block_choose";
 import DropdownBlockList from "../../components/Reuse/Dropdown_block_list";
 
 import "../../styles/Personal/MainPage/MainPage.css"
@@ -30,14 +30,14 @@ export default function MainPage(){
                 curent_name: "список запланированных аудитов", 
                 }}
             />
-            <Dropdown_block_choose 
+            <DropdownBlockChoose 
                 info={{
                 lable: "Организовать аудит", 
                 curent_name: "Организация аудита", 
                 link_page: "/Planing_audit_page"
                 }}
             />
-            <Dropdown_block_choose 
+            <DropdownBlockChoose 
                 info={{
                 lable: "История закрытых аудитов", 
                 curent_name: "Список закрытых аудитов", 

@@ -11,6 +11,7 @@ import AdminPageUsers from '../pages/AdminPage/AdminPageUsers'
 import AdminPageFacilites from '../pages/AdminPage/AdminPageFacilites'
 
 import HistoryAuditPage from '../pages/HistoryAuditPage/HistoryAuditPage'
+import AuditResultPage from '../pages/AuditResultPage/AuditResultPage'
 
 export default function AppRoutes(){
     return(
@@ -26,6 +27,7 @@ export default function AppRoutes(){
                 <Route path='/Admin_page_users' element={<AdminPageUsers/>}/>
                 <Route path='/Admin_page_facilites' element={<AdminPageFacilites/>}/>
                 <Route path='/History_audit_page' element={<HistoryAuditPage/>}/>
+                <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>
             </Routes>
         </BrowserRouter>
     )
