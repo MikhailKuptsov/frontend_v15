@@ -2,6 +2,8 @@ import MainHeader from "../../components/Reuse/MainHeader"
 import UnderBar from "../../components/Reuse/UnderBar"
 import { Container } from 'react-bootstrap';
 
+import UserDataDisplay from "../../components/Personal/MainPage/UserDataDisplay";
+
 import DropdownBlockAudits from "../../components/Personal/MainPage/DropdownBlockAudits/DropdownBlockAudits";
 import DropdownBlockPlannedAudits from "../../components/Personal/MainPage/DropdownBlockPlannedAudits/DropdownBlockPlannedAudits";
 import DropdownBlockChoose from "../../components/Reuse/Dropdown_block_choose";
@@ -31,6 +33,9 @@ export default function MainPage(){
                 curent_name: "список запланированных аудитов", 
                 }}
             /> */}
+            <div className="Dropdown_block_choose_block">
+                <UserDataDisplay/>
+            </div>
             <div className="Dropdown_block_choose_block">
                 <DropdownBlockAudits/>
             </div>

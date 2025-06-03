@@ -15,6 +15,8 @@ import AuditResultPage from '../pages/AuditResultPage/AuditResultPage'
 
 import PlaningAuditPage from '../pages/PlaningAuditPage/PlaningAuditPage'
 
+import AuditTestPage from '../pages/AuditTestPage/AuditTestPage'
+
 export default function AppRoutes(){
     return(
         <BrowserRouter>
@@ -31,6 +33,7 @@ export default function AppRoutes(){
                 <Route path='/History_audit_page' element={<HistoryAuditPage/>}/>
                 <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>
                 <Route path='/Planing_audit_page' element={<PlaningAuditPage/>}/>
+                <Route path='/audit_page/:audit_id' element={<AuditTestPage/>}/>
             </Routes>
         </BrowserRouter>
     )

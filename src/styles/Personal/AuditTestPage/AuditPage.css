@@ -1,0 +1,30 @@
+/* AuditPage.css */
+.audit-page-container {
+    position: relative;
+    padding-top: 60px; /* Отступ для фиксированной кнопки */
+}
+
+.menu-button-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1050; /* Выше чем у Offcanvas (который обычно 1045) */
+}
+
+/* Стили для самой кнопки */
+.menu-button-container .btn {
+    padding: 8px 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-button-container {
+        top: 10px;
+        right: 10px;
+    }
+    .audit-page-container {
+        padding-top: 50px;
+    }
+}
