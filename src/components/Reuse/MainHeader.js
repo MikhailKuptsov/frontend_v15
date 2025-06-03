@@ -11,6 +11,15 @@ import logo from "../../images/logo/logo1.png"
 // Импорт стилей
 import "../../styles/Reuse/MainHeader.css"
 
+//Функция объединения 
+import ArrayToString from '../../api/api_url_connection';
+//Url-api части
+import { BaseUrl } from '../../constans/Main_api_url';
+import { Api_auth } from "../../constans/Auth_api_url";
+//API-функция
+import { PostRequestWithHeaders } from '../../api/PostRequestWithHeaders';
+
+
 const MainHeader = () => {
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -20,19 +29,24 @@ const MainHeader = () => {
 
 
   const handleLogout = async () => {
-    setIsLoggingOut(true);
-    try {
-      // await logoutUser();
-    } catch (error) {
-      console.error('Logout failed:', error);
-      alert('Logout failed:', error)
-    } finally {
+    // setIsLoggingOut(true);
+    // console.log(userData.api_session_key)
+    // console.log(ArrayToString([BaseUrl, Api_auth["logout"]]))
+    const result = await PostRequestWithHeaders(ArrayToString([BaseUrl, Api_auth["logout"]]), userData.api_session_key)
+    if (result.error){
+      alert(`Ошибка выхода. Код ошибки:${result.error}`)
+      console.log("Post_запрос не выполнен")
+      // setIsLoggingOut(false);
+    }else{
+      console.log("Post_запрос выполнен")
       sessionStorage.removeItem('user_data');
-      navigate('/login');
-      setIsLoggingOut(false);
+      alert("Успешный выход")
+      // setIsLoggingOut(false);
+      navigate('/Auth_page')
     }
   };
 
+  //Страница загрузки при выходе из приложения
   if (isLoggingOut) {
     return <LoadingStuck/>;
   }
