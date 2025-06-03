@@ -13,6 +13,8 @@ import AdminPageFacilites from '../pages/AdminPage/AdminPageFacilites'
 import HistoryAuditPage from '../pages/HistoryAuditPage/HistoryAuditPage'
 import AuditResultPage from '../pages/AuditResultPage/AuditResultPage'
 
+import PlaningAuditPage from '../pages/PlaningAuditPage/PlaningAuditPage'
+
 export default function AppRoutes(){
     return(
         <BrowserRouter>
@@ -28,6 +30,7 @@ export default function AppRoutes(){
                 <Route path='/Admin_page_facilites' element={<AdminPageFacilites/>}/>
                 <Route path='/History_audit_page' element={<HistoryAuditPage/>}/>
                 <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>
+                <Route path='/Planing_audit_page' element={<PlaningAuditPage/>}/>
             </Routes>
         </BrowserRouter>
     )
