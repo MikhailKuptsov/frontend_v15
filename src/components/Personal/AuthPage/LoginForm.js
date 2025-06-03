@@ -96,8 +96,8 @@ export default function LoginForm(){
                             />
                             {capsLockActive && (<p  className="Auth_Caps_text">*У вас нажат CapsLock</p>)}
                         </Form.Group>
-                        <Form.Group className="mb-3" >
-                            <Form.Label>Email:</Form.Label>
+                        <Form.Group className="mb-3" controlId="formPlaintextPassword" >
+                            <Form.Label>Введите пароль:</Form.Label>
                             <Form.Control 
                             type="password" 
                             placeholder="Введите пароль" 
