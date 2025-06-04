@@ -193,7 +193,7 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                 />
             </Form.Group>
             <div className='AdminButtonsBlock'>
-                    <Button variant="secondary" onClick={onBack}>
+                    <Button variant="secondary" onClick={onBack} size="lg" className='AdminButtons'>
                         Назад
                     </Button>
                     
@@ -210,13 +210,13 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                     )} */}
                     
                     {(!isEditMode || isEditing) && (
-                        <Button variant="success" type="submit">
+                        <Button variant="success" type="submit" size="lg" className='AdminButtons'>
                             {isEditMode ? 'Сохранить изменения' : 'Создать'}
                         </Button>
                     )}
                     
                     {isEditMode && (
-                        <Button variant="danger" onClick={() => onDelete(formData.username)}>
+                        <Button variant="danger" className='AdminButtons' size="lg" onClick={() => onDelete(formData.username)}>
                             Удалить пользователя
                         </Button>
                     )}

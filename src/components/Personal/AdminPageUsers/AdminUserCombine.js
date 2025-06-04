@@ -79,6 +79,7 @@ export default function AdminUserCombine({ users_all_data }) {
                 variant="primary" 
                 onClick={handleCreateNew}
                 className="mb-3"
+                size="lg"
             >
                 Создать нового пользователя
             </Button>

@@ -10,7 +10,7 @@ export default function CardUser({ user, onSelect }) {
                 <Card.Text>
                     {user.surname} {user.name} {user.patronymic || ''}
                 </Card.Text>
-                <Button variant="primary" onClick={onSelect}>
+                <Button variant="primary" onClick={onSelect} size="lg"> 
                     Выбрать
                 </Button>
             </Card.Body>
