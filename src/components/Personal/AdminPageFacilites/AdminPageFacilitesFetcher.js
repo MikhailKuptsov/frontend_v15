@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-//Тестовые данные
-import FacilitiesFULLdata from "../../../test_data/AdminPage/FacilitiesFULLdata.json"
+// //Тестовые данные
+// import FacilitiesFULLdata from "../../../test_data/AdminPage/FacilitiesFULLdata.json"
 
 import LoadingStuck from "../../Reuse/LoadingStuck";
 import AdminFacilitiesCombine from "./AdminFacilitiesCombine";

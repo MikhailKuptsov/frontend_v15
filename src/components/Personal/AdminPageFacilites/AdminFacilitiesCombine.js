@@ -4,6 +4,14 @@ import BlocksAllFacilitiesCards from './BlocksAllFacilitiesCards';
 import CreateFacilityForm from './CreateFacilityForm';
 import { Button } from 'react-bootstrap';
 
+//Функция объединения 
+import ArrayToString from '../../../api/api_url_connection';
+import { BaseUrl } from "../../../constans/Main_api_url";
+import ApiFacility from '../../../constans/Facility_api_url';
+
+import DeleteRequest from "../../../api/DeleteRequest"
+
+
 export default function AdminFacilitiesCombine({ facilities_all_data }) {
     const [showCreateForm, setShowCreateForm] = useState(false);
     const [selectedFacility, setSelectedFacility] = useState(null);
@@ -23,10 +31,20 @@ export default function AdminFacilitiesCombine({ facilities_all_data }) {
         setSelectedFacility(facility);
     };
 
-    const handleDeleteFacility = (id) => {
-        console.log(`Завод с ID ${id} удалён`);
-        setFacilities(facilities.filter(facility => facility.id !== id));
-        handleBackToList();
+    const handleDeleteFacility = async(id) => {
+        const userData = JSON.parse(sessionStorage.getItem('user_data'));
+        const result = await DeleteRequest(ArrayToString([BaseUrl, ApiFacility["delete"], id]), userData.api_session_key)
+        
+        if (result.error){
+            alert(`данные о ${id} не удалены. Ошибка ${result.error}`)
+        }else{
+            console.log(`Завод ${id} удалён из системы`);
+            setFacilities(facilities.filter(facility => facility.id !== id));
+            handleBackToList();
+        }
+        // console.log(`Завод с ID ${id} удалён`);
+        // setFacilities(facilities.filter(facility => facility.id !== id));
+        // handleBackToList();
     };
 
     const handleSaveFacility = (facilityData) => {

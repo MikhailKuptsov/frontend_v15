@@ -2,6 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
+//Функция объединения 
+import ArrayToString from "../../../api/api_url_connection";
+import { BaseUrl } from "../../../constans/Main_api_url";
+import ApiFacility from "../../../constans/Facility_api_url"
+
+import { PostRequestsWithHeadersData } from '../../../api/PostRequestsWithHeadersData';
+
 export default function CreateFacilityForm({ facility, onSave, onBack, onDelete }) {
     const [formData, setFormData] = useState({
         id: '',
@@ -35,9 +42,16 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        onSave(formData);
+        const userData = JSON.parse(sessionStorage.getItem('user_data'));
+        const result = await PostRequestsWithHeadersData(ArrayToString([BaseUrl, ApiFacility["add"]]), formData, userData.api_session_key)
+        if (result.error){
+            alert("Данные не изменены",result.error)
+        }else{
+            console.log("Создан завод")
+            onSave(formData);
+        }
     };
 
     const handleEditToggle = () => {
