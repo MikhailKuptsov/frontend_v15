@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const DeleteRequest = async (api_request_link, headers_data) => {
   try {
-    const response = await axios.delete(api_request_link, { headers: headers_data });
+    const response = await axios({method:"delete", url:api_request_link, headers: {'api-session-key': headers_data}});
     return { message: 'Данные удалены', status: response.status };
   } catch (error) {
       return { 
