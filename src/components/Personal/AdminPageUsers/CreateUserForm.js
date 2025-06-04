@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+import "../../../styles/Personal/AdminPage/AdminButtons.css"
+
+//Функция объединения 
+import ArrayToString from '../../../api/api_url_connection';
+import { BaseUrl } from "../../../constans/Main_api_url";
+import { api_users } from "../../../constans/Users_api_url";
+
+import { PostRequestsWithHeadersData } from '../../../api/PostRequestsWithHeadersData';
+
 export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
     const [formData, setFormData] = useState({
         username: '',
@@ -44,13 +53,27 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    //отправка данных из API
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log('Изменённые данные:', JSON.stringify(formData, null, 2));
-        console.log(`Ссылка: https://9l1rs9ln-8000.euw.devtunnels.ms/users/@${originalData.username}`);
-        console.log('Данные изменены');
-        onSave(formData);
-        setIsEditing(false);
+        const userData = JSON.parse(sessionStorage.getItem('user_data'));
+        
+        const result = await PostRequestsWithHeadersData(ArrayToString([BaseUrl, api_users["add_user"]]), formData, userData.api_session_key)
+        
+        if (result.error){
+            alert("Данные не изменены",result.error)
+        }else{
+            console.log('Изменённые данные:', JSON.stringify(formData, null, 2));
+            console.log('Данные изменены');
+            onSave(formData);
+            setIsEditing(false);
+        }
+        // console.log('Изменённые данные:', JSON.stringify(formData, null, 2));
+        // // console.log(`Ссылка: https://9l1rs9ln-8000.euw.devtunnels.ms/users/@${originalData.username}`);
+        // console.log('Данные изменены');
+        // console.log(formData.username)
+        // onSave(formData);
+        // setIsEditing(false);
     };
 
     const handleEditToggle = () => {
@@ -65,7 +88,9 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
     return (
         <Form onSubmit={handleSubmit}>
             <h2>{isEditMode ? 'Просмотр пользователя' : 'Создание нового пользователя'}</h2>
-            
+            <Button variant="secondary" onClick={onBack}>
+                        Назад
+                    </Button>            
             <Form.Group className="mb-3">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -167,36 +192,36 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                     placeholder={isEditMode ? "Оставьте пустым для сохранения текущего пароля" : ""}
                 />
             </Form.Group>
+            <div className='AdminButtonsBlock'>
+                    <Button variant="secondary" onClick={onBack}>
+                        Назад
+                    </Button>
+                    
+                    {isEditMode && !isEditing && (
+                        <Button variant="primary" onClick={handleEditToggle}>
+                            Изменить данные о пользователе
+                        </Button>
+                    )}
+                    
+                    {isEditMode && isEditing && (
+                        <Button variant="warning" onClick={handleRevertChanges}>
+                            Вернуть всё как было
+                        </Button>
+                    )}
+                    
+                    {(!isEditMode || isEditing) && (
+                        <Button variant="success" type="submit">
+                            {isEditMode ? 'Сохранить изменения' : 'Создать'}
+                        </Button>
+                    )}
+                    
+                    {isEditMode && (
+                        <Button variant="danger" onClick={() => onDelete(formData.username)}>
+                            Удалить пользователя
+                        </Button>
+                    )}
+                </div>
 
-            <div className="d-flex justify-content-between">
-                <Button variant="secondary" onClick={onBack}>
-                    Назад
-                </Button>
-                
-                {isEditMode && !isEditing && (
-                    <Button variant="primary" onClick={handleEditToggle}>
-                        Изменить данные о пользователе
-                    </Button>
-                )}
-                
-                {isEditMode && isEditing && (
-                    <Button variant="warning" onClick={handleRevertChanges}>
-                        Вернуть всё как было
-                    </Button>
-                )}
-                
-                {(!isEditMode || isEditing) && (
-                    <Button variant="success" type="submit">
-                        {isEditMode ? 'Сохранить изменения' : 'Создать'}
-                    </Button>
-                )}
-                
-                {isEditMode && (
-                    <Button variant="danger" onClick={() => onDelete(formData.username)}>
-                        Удалить пользователя
-                    </Button>
-                )}
-            </div>
         </Form>
     );
 }

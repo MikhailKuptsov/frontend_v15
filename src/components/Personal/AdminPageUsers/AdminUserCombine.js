@@ -3,6 +3,16 @@ import BlocksAllCards from './BlocksAllCards';
 import CreateUserForm from './CreateUserForm';
 import { Button } from 'react-bootstrap';
 
+
+//Функция объединения 
+import ArrayToString from '../../../api/api_url_connection';
+import { BaseUrl } from "../../../constans/Main_api_url";
+import { api_users } from "../../../constans/Users_api_url";
+
+import DeleteRequest from "../../../api/DeleteRequest";
+import PostRequestsWithHeadersData from "../../../api/PostRequestsWithHeadersData"
+
+
 export default function AdminUserCombine({ users_all_data }) {
     const [showCreateForm, setShowCreateForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -28,7 +38,8 @@ export default function AdminUserCombine({ users_all_data }) {
         handleBackToList();
     };
 
-    const handleCreateUser = (newUser) => {
+    const handleCreateUser = async (newUser) => {
+        // const result = await PostRequestWithData(ArrayToString([BaseUrl, Api_auth["login"]]), data)
         console.log('Пользователь создан:', newUser);
         setUsers([...users, newUser]);
         handleBackToList();
