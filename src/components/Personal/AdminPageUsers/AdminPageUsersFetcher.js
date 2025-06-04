@@ -10,8 +10,6 @@ import { api_users } from "../../../constans/Users_api_url";
 
 import { GetRequest } from "../../../api/GetRequest";
 
-import { Alert } from "react-bootstrap";
-
 import AdminUserCombine from "./AdminUserCombine";
 
 import LoadingStuck from "../../Reuse/LoadingStuck";
@@ -32,8 +30,8 @@ export default function AdminPageUsersFetcher(){
         }
         fetchData();
     },[])
-    const userData = JSON.parse(sessionStorage.getItem('user_data'));
-    const result = GetRequest(ArrayToString([BaseUrl,api_users["get_all_users"]]), userData.api_session_key );
+    // const userData = JSON.parse(sessionStorage.getItem('user_data'));
+    // const result = GetRequest(ArrayToString([BaseUrl,api_users["get_all_users"]]), userData.api_session_key );
 
     const users_all_dat=data
     if (users_all_dat != null){

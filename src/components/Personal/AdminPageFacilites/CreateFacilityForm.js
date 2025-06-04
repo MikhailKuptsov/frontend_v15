@@ -103,7 +103,7 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
                     Назад
                 </Button>
                 
-                {isEditMode && !isEditing && (
+                {/* {isEditMode && !isEditing && (
                     <Button variant="primary" onClick={handleEditToggle}>
                         Изменить данные о заводе
                     </Button>
@@ -113,7 +113,7 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
                     <Button variant="warning" onClick={handleRevertChanges}>
                         Вернуть всё как было
                     </Button>
-                )}
+                )} */}
                 
                 {(!isEditMode || isEditing) && (
                     <Button variant="success" type="submit">

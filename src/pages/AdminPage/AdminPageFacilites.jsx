@@ -5,17 +5,18 @@ import AdminFacilitiesCombine from "../../components/Personal/AdminPageFacilites
 //Стили
 import "../../styles/Personal/AdminPage/AdminPage.css"
 
-import FacilitiesFULLdata from "../../test_data/AdminPage/FacilitiesFULLdata.json"
+import AdminPageFacilitesFetcher from "../../components/Personal/AdminPageFacilites/AdminPageFacilitesFetcher";
 
 export default function AdminPageFacilites(){
-    const facilities_all_data = FacilitiesFULLdata;
+    // const facilities_all_data = FacilitiesFULLdata;
     return(
         <>
         <MainHeader/>
         <div className="AdminPage_Block">
             <div className="container mt-4">
                 <h1 className="mb-4">Управление заводами</h1>
-                <AdminFacilitiesCombine facilities_all_data={facilities_all_data} />
+                <AdminPageFacilitesFetcher/>
+                
             </div>
         </div>
         <UnderBar/>
