@@ -9,7 +9,7 @@ import ArrayToString from '../../../api/api_url_connection';
 import { BaseUrl } from "../../../constans/Main_api_url";
 import { api_users } from "../../../constans/Users_api_url";
 
-import DeleteRequest from "../../../api/DeleteRequest";
+import DeleteRequest from "../../../api/DeleteRequest"
 import PostRequestsWithHeadersData from "../../../api/PostRequestsWithHeadersData"
 
 
@@ -32,10 +32,20 @@ export default function AdminUserCombine({ users_all_data }) {
         setSelectedUser(user);
     };
 
-    const handleDeleteUser = (username) => {
-        console.log(`Пользователь ${username} удалён`);
-        setUsers(users.filter(user => user.username !== username));
-        handleBackToList();
+    const handleDeleteUser = async(username) => {
+        const userData = JSON.parse(sessionStorage.getItem('user_data'));
+        const result = await DeleteRequest(ArrayToString([BaseUrl, api_users["delete_user"], username]), userData.api_session_key)
+
+        if (result.error){
+            alert(`данные о ${username} не удалены. Ошибка ${result.error}`)
+        }else{
+            console.log(`Пользователь ${username} удалён`);
+            setUsers(users.filter(user => user.username !== username));
+            handleBackToList();
+        }
+        // console.log(`Пользователь ${username} удалён`);
+        // setUsers(users.filter(user => user.username !== username));
+        // handleBackToList();
     };
 
     const handleCreateUser = async (newUser) => {
