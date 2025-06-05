@@ -11,7 +11,7 @@ export default function CardFacility({ facility, onSelect }) {
                 <Card.Text>
                     {facility.full_name}
                 </Card.Text>
-                <Button variant="primary" onClick={onSelect}>
+                <Button variant="primary" onClick={onSelect} size="lg">
                     Выбрать
                 </Button>
             </Card.Body>

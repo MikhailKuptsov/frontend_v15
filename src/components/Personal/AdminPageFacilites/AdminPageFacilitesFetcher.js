@@ -30,8 +30,9 @@ export default function AdminPageFacilitesFetcher(){
             }
             fetchData();
         },[])
-    const facility_all_dat=data
-    if (facility_all_dat != null){
+
+    if (data != null){
+        const facility_all_dat=data
         return(
             // <p>{JSON.stringify(facility_all_dat)}</p>
             <AdminFacilitiesCombine facilities_all_data={facility_all_dat} /> 

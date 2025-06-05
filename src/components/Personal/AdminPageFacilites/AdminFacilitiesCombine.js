@@ -12,6 +12,8 @@ import ApiFacility from '../../../constans/Facility_api_url';
 import DeleteRequest from "../../../api/DeleteRequest"
 
 
+
+
 export default function AdminFacilitiesCombine({ facilities_all_data }) {
     const [showCreateForm, setShowCreateForm] = useState(false);
     const [selectedFacility, setSelectedFacility] = useState(null);
@@ -85,6 +87,7 @@ export default function AdminFacilitiesCombine({ facilities_all_data }) {
                 variant="primary" 
                 onClick={handleCreateNew}
                 className="mb-3"
+                size="lg" 
             >
                 Создать новый завод
             </Button>

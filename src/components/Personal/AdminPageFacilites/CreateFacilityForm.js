@@ -112,8 +112,8 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
                 />
             </Form.Group>
 
-            <div className="d-flex justify-content-between">
-                <Button variant="secondary" onClick={onBack}>
+            <div className='AdminButtonsBlock'>
+                <Button variant="secondary" onClick={onBack} size="lg" className='AdminButtons'>
                     Назад
                 </Button>
                 
@@ -130,13 +130,13 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
                 )} */}
                 
                 {(!isEditMode || isEditing) && (
-                    <Button variant="success" type="submit">
+                    <Button variant="success" type="submit" size="lg" className='AdminButtons'>
                         {isEditMode ? 'Сохранить изменения' : 'Создать'}
                     </Button>
                 )}
                 
                 {isEditMode && (
-                    <Button variant="danger" onClick={onDelete}>
+                    <Button variant="danger" onClick={onDelete} size="lg" className='AdminButtons'>
                         Удалить завод
                     </Button>
                 )}
