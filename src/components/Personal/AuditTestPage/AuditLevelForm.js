@@ -27,7 +27,7 @@ const AuditLevelForm = ({
     }));
     
     onLevelSubmit(results);
-    console.log('Submitted level results:', results);
+    // console.log('Submitted level results:', results);
     alert('Данные сохранены'); // Добавлен alert после сохранения
   };
 

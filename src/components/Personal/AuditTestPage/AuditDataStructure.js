@@ -2,14 +2,34 @@ import React, { useState } from 'react';
 import AuditLevelForm from './AuditLevelForm';
 import { Tab, Tabs } from 'react-bootstrap';
 
+import { useParams } from 'react-router-dom';
+
+//Функция объединения 
+import ArrayToString from '../../../api/api_url_connection';
+import { BaseUrl } from "../../../constans/Main_api_url";
+import { Api_audit } from '../../../constans/Audit_api_url';
+
+import { PutRequest } from '../../../api/PutRequest';
+
 const AuditDataStructure = ({ data }) => {
   const [activeTabs, setActiveTabs] = useState({});
   const [formStates, setFormStates] = useState({});
+  const {audit_id}=useParams()
 
-  if (!data) return null;
-
-  const handleLevelSubmit = (results, partName, category, level) => {
-    console.log('Submitted level results:', results);
+  if (!data) return (<h1>Нету данных</h1>);
+  //API данные
+  const handleLevelSubmit = async(results, partName, category, level) => {
+    // console.log(audit_id)
+    // console.log('Submitted level results:', results);
+    // alert(`Данные уровня ${level} подраздела ${category} сохранены`)
+    const userData = JSON.parse(sessionStorage.getItem('user_data'));
+    const send_result = await PutRequest(ArrayToString([BaseUrl,Api_audit["Fill_question"], audit_id]), results ,userData.api_session_key );
+    if (send_result.error){
+      alert(`ошибка в отправке. Текст:${send_result.error}; код:${send_result.status}`)
+    }else{
+      alert(`Данные уровня ${level} подраздела ${category} сохранены`)
+    }
+    
     setFormStates(prev => ({
       ...prev,
       [`${partName}-${category}-${level}`]: results

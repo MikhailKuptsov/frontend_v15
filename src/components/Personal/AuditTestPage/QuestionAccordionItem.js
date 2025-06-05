@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Card, Form } from 'react-bootstrap';
+import { Accordion, Form } from 'react-bootstrap';
 import DropdownBox from './DropdownBox';
 
 const QuestionAccordionItem = ({ 
@@ -8,11 +8,18 @@ const QuestionAccordionItem = ({
   register,
   setValue
 }) => {
+  // Устанавливаем начальное значение для комментария
+  React.useEffect(() => {
+    if (questionData.comment !== undefined) {
+      setValue(`comment-${questionNumber}`, questionData.comment || '');
+    }
+  }, [questionNumber, questionData.comment, setValue]);
+
   return (
     <Accordion.Item eventKey={questionNumber}>
       <Accordion.Header>Пункт {questionNumber}</Accordion.Header>
       <Accordion.Body>
-        <Card.Body>
+        <div className="mb-3">
           <p><strong>Задание:</strong> {questionData.task_value}</p>
           <p><strong>Контрольный элемент:</strong> {questionData.control_element}</p>
           {questionData.additional_info && (
@@ -36,9 +43,10 @@ const QuestionAccordionItem = ({
               as="textarea"
               rows={3}
               {...register(`comment-${questionNumber}`)}
+              defaultValue={questionData.comment || ''}
             />
           </Form.Group>
-        </Card.Body>
+        </div>
       </Accordion.Body>
     </Accordion.Item>
   );
