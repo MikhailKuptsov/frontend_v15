@@ -23,7 +23,11 @@ export default function AdminPageFacilitesFetcher(){
                     const userData = JSON.parse(sessionStorage.getItem('user_data'));
                     const result = await GetRequest(ArrayToString([BaseUrl,ApiFacility["get_all_facility"]]), userData.api_session_key );
                     // console.log(ArrayToString([BaseUrl,api_users["get_all_users"]]))
-                    setData(result.data)
+                    if (result.error){
+                        alert(`данные не удалось подгрузить. Ошибка:${result.error}. Код: ${result.status}`)
+                    }else{
+                        setData(result.data)
+                    }
                 }catch(err){
                     alert("ошибка выполнения",err)
                 }
