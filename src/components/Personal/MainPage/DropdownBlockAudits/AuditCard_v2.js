@@ -17,7 +17,7 @@ export default function AuditCard_v2({
     const navigate = useNavigate();
 
     const handleStatusChange = () => {
-        onStatusChange(id);
+        onStatusChange(id, is_active);
     };
 
     // Функция для форматирования даты

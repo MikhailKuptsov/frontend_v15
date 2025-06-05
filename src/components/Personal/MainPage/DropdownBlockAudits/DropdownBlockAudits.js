@@ -41,9 +41,15 @@ export default function DropdownBlockAudits() {
             setLoading(false);
         }
     };
-
-    const handleStatusChange = (id) => {
-        changeAuditStatus(id, planingData, activeData, setPlaningData, setActiveData);
+    
+    //изменение статуса аудита
+    const handleStatusChange = (id, is_active) => {
+        if (is_active===true){
+            console.log(`id аудита ${id} статус: ${false}`)
+        }else{
+            console.log(`id аудита ${id} статус: ${true}`)
+        }
+        // changeAuditStatus(id, planingData, activeData, setPlaningData, setActiveData);
     };
 
     return (
