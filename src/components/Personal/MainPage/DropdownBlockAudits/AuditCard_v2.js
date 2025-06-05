@@ -91,7 +91,8 @@ export default function AuditCard_v2({
                                 Посмотреть результаты
                             </Button>
                         )}
-                        <Button 
+                        {is_active && (
+                            <Button 
                             variant="primary"
                             onClick={handleSelectAudit}
                             style={{margin:"5px", width:"100%"}}
@@ -99,6 +100,7 @@ export default function AuditCard_v2({
                         >
                             Выбрать
                         </Button>
+                        )}
                     </div>
                 </Accordion.Body>
             </Accordion.Item>
