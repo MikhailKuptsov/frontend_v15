@@ -10,7 +10,7 @@ const TableData = ({ audit_table_data, audit_users_data }) => {
     const audior_name=audit_users_data
 
     const countPositiveResults = (points) => {
-        return Object.values(points).filter(val => val === "да").length;
+        return Object.values(points).filter(val => val === "Да").length;
     };
 
     const countTotalPoints = (points) => {

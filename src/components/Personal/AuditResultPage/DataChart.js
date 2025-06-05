@@ -16,7 +16,7 @@ const DataChart = ({ data_chart }) => {
                 for (const levelData of Object.values(subsectionData)) {
                     // Проходим по всем пунктам
                     for (const pointValue of Object.values(levelData)) {
-                        if (pointValue === "да") {
+                        if (pointValue === "Да") {
                             totalYes++;
                         }
                     }

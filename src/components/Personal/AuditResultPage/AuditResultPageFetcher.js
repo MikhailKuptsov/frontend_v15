@@ -37,20 +37,19 @@ export default function AuditResultPageFetcher(){
         fetchData();
     },[])
 
-
-    const processedData_1 = JSON.parse(JSON.stringify(data), (key, value) => {
-        return value === null ? "отсутствует" : value;
-    });
-
-    const processedData_2=JSON.parse(JSON.stringify(allUsersData), (key, value) => {
-        return value === null ? "" : value;})
-
-    const DataUsers_transform=TransformUsers(processedData_2)
-
     if (data!=null && allUsersData!=null){
+        const processedData_1 = JSON.parse(JSON.stringify(data), (key, value) => {
+            return value === null ? "отсутствует" : value;
+        });
+
+        const processedData_2=JSON.parse(JSON.stringify(allUsersData), (key, value) => {
+            return value === null ? "" : value;})
+
+        const DataUsers_transform=TransformUsers(processedData_2)
         return(
             <>
             {/* <h3>Подгруженные данные</h3> */}
+            {/* <p>{JSON.stringify(data)}</p> */}
             <AuditResultPageBlock processedData={processedData_1} processedDataUsers={DataUsers_transform}/>
             </>
         )
