@@ -1,13 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-const TableData = ({ audit_table_data }) => {
+const TableData = ({ audit_table_data, audit_users_data }) => {
     if (!audit_table_data) return <div>No data available</div>;
 
     const replaceNull = (value) => {
         return value === null ? "отсутствует" : value;
     };
-    const audior_name={"user":"Иванов Иван Иванович","admin":"Алиса Алиса Алиса"}
+    const audior_name=audit_users_data
 
     const countPositiveResults = (points) => {
         return Object.values(points).filter(val => val === "да").length;
