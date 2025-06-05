@@ -4,12 +4,20 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import Select from 'react-select';
 
 const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
-  const { register, handleSubmit, control } = useForm({
-    defaultValues: data
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      ...data,
+      results_access: data.results_access === "choice_true" // преобразуем строку в boolean при инициализации
+    }
   });
 
   const onSubmit = (formData) => {
-    onChange(formData);
+    // Отправляем данные без преобразования results_access
+    onChange({
+      ...formData,
+      // activation остается как есть ("on_demand" или "by_datetime")
+      // results_access уже содержит true/false
+    });
   };
 
   return (
@@ -75,16 +83,18 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         <Form.Group as={Col} controlId="activation">
           <Form.Label>Активация</Form.Label>
           <Form.Select {...register('activation')}>
-            <option value="on_demand">По запросу лидера</option>
-            <option value="by_datetime">Автоматически</option>
+            <option value="on_demand">По требованию</option>
+            <option value="by_datetime">По расписанию</option>
           </Form.Select>
         </Form.Group>
 
         <Form.Group as={Col} controlId="results_access">
           <Form.Label>Доступ к результатам</Form.Label>
-          <Form.Select {...register('results_access')}>
-            <option value="true">Разрешен</option>
-            <option value="false">Запрещен</option>
+          <Form.Select {...register('results_access', { 
+            setValueAs: value => value === "true" // преобразуем строку в boolean
+          })}>
+            <option value="true">Дать доступ</option>
+            <option value="false">Не давать</option>
           </Form.Select>
         </Form.Group>
       </Row>
@@ -101,9 +111,9 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         </Form.Group>
       </Row>
 
-      {/* <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit">
         Сохранить основные данные
-      </Button> */}
+      </Button>
     </Form>
   );
 };

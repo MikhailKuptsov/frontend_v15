@@ -1,11 +1,11 @@
 {
-  "name": "string",
-  "description": "string",
-  "facility_id": "DropdownChoice",
-  "start_datetime": "date_time",
-  "end_datetime": "date_time",
-  "activation": "choice_start",
-  "results_access": "choice_true_false",
-  "audit_leader": "DropdownFIO",
-  "test_id": "string"
+  "name": "Аудит качества",
+  "description": "Проверка стандартов",
+  "facility_id": "6813adb595a4f30837bb250a",
+  "start_datetime": "2023-11-15T09:00",
+  "end_datetime": "2023-11-17T18:00",
+  "activation": "by_datetime",
+  "results_access": true, 
+  "audit_leader": "Admin1",
+  "test_id": "68164346f3b9566251d93d10"
 }
