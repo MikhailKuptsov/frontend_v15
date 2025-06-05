@@ -111,9 +111,9 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         </Form.Group>
       </Row>
 
-      <Button variant="primary" type="submit">
+      {/* <Button variant="primary" type="submit">
         Сохранить основные данные
-      </Button>
+      </Button> */}
     </Form>
   );
 };
