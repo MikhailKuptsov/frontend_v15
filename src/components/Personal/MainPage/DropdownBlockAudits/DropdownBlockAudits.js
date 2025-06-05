@@ -13,6 +13,7 @@ import { BaseUrl } from '../../../../constans/Main_api_url';
 import { Api_audit } from '../../../../constans/Audit_api_url';
 
 import { GetRequest } from '../../../../api/GetRequest';
+import { PostRequestWithHeaders } from '../../../../api/PostRequestWithHeaders';
 
 
 export default function DropdownBlockAudits() {
@@ -43,11 +44,25 @@ export default function DropdownBlockAudits() {
     };
     
     //изменение статуса аудита
-    const handleStatusChange = (id, is_active) => {
+    const handleStatusChange = async(id, is_active) => {
         if (is_active===true){
-            console.log(`id аудита ${id} статус: ${false}`)
+            const userData = JSON.parse(sessionStorage.getItem('user_data'));
+            const ChangeAuditStatus= await PostRequestWithHeaders(ArrayToString([BaseUrl,Api_audit["Change_activity_p1"],id, Api_audit["Change_activity_p2"],"false"]), userData.api_session_key)
+            if (ChangeAuditStatus.error){
+                alert(`статус аудита ${id} не изменён. Ошибка ${ChangeAuditStatus.error}`)
+            }else{
+                console.log(`id аудита ${id} измененный статус: ${false}`)
+                changeAuditStatus(id, planingData, activeData, setPlaningData, setActiveData);
+            }
         }else{
-            console.log(`id аудита ${id} статус: ${true}`)
+            const userData = JSON.parse(sessionStorage.getItem('user_data'));
+            const ChangeAuditStatus= await PostRequestWithHeaders(ArrayToString([BaseUrl,Api_audit["Change_activity_p1"],id, Api_audit["Change_activity_p2"],"true"]), userData.api_session_key)
+            if (ChangeAuditStatus.error){
+                alert(`статус аудита ${id} не изменён. Ошибка ${ChangeAuditStatus.error}`)
+            }else{
+                console.log(`id аудита ${id} статус: ${true}`)
+                changeAuditStatus(id, planingData, activeData, setPlaningData, setActiveData);
+            }
         }
         // changeAuditStatus(id, planingData, activeData, setPlaningData, setActiveData);
     };
