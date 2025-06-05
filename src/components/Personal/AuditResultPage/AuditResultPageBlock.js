@@ -8,10 +8,10 @@ import DataChart from './DataChart';
 
 
 const AuditResultPageBlock = ({processedData}) => {
-    const {audit_id}=useParams()
+    // const {audit_id}=useParams()
     return (
         <Container className="py-4">
-            <h1 className="mb-4">Результаты аудита {audit_id}</h1>
+            {/* <h1 className="mb-4">Результаты аудита {audit_id}</h1> */}
             <DataChart data_chart={processedData} />
             <TableData audit_table_data={processedData} />
             
