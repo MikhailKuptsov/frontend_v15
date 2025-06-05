@@ -11,6 +11,14 @@ import MainFormData from '../../../test_data/PlaningAuditPage/MainForm_data.json
 
 import FilterEmptySections from './FilterEmptySections';
 
+//Функция объединения 
+import ArrayToString from '../../../api/api_url_connection';
+import { BaseUrl } from '../../../constans/Main_api_url';
+import { Api_audit } from '../../../constans/Audit_api_url';
+
+import { PostRequestsWithHeadersData } from '../../../api/PostRequestsWithHeadersData';
+
+
 const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
   const [mainData, setMainData] = useState(null);
   const [testData, setTestData] = useState(null);
@@ -42,7 +50,7 @@ const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
     setFacilityOptions(facilityOpts);
   }, []);
 
-  const handleSubmit = (data) => {
+  const handleSubmit = async(data) => {
     // console.log(data);
     // console.log(JSON.stringify(data.auditors))
     // onSubmit({"auditors":FilterEmptySections(data.auditors)});
@@ -59,8 +67,13 @@ const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
       "auditors":FilterEmptySections(data.auditors)
     }
     // console.log(final_data_form)
-    
-    alert('данные отправлены');
+    const userData = JSON.parse(sessionStorage.getItem('user_data'));
+    const result_users_data = await PostRequestsWithHeadersData(ArrayToString([BaseUrl,Api_audit["add_one"]]), final_data_form, userData.api_session_key );
+    if (result_users_data.error){
+      alert(`Данные не отпавлены ошибка ${result_users_data.status}`)
+    }else{
+      alert('данные отправлены, аудит создан');
+    }
   };
 
   if (!mainData || !testData || !userOptions.length || !facilityOptions.length) {
