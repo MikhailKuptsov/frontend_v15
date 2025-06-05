@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Form, Button, Accordion } from 'react-bootstrap';
 import Select from 'react-select';
 
+// import FilterEmptySections from './FilterEmptySections';
+
 const FormTestData = ({ data, onChange, onSubmit, userOptions }) => {
   const { handleSubmit } = useForm();
 
@@ -13,6 +15,8 @@ const FormTestData = ({ data, onChange, onSubmit, userOptions }) => {
   };
 
   const handleFormSubmit = () => {
+    // console.log(JSON.stringify({"auditors":FilterEmptySections(data.auditors)}))
+    // console.log(JSON.stringify(data.auditors))
     onSubmit(data.auditors);
   };
 

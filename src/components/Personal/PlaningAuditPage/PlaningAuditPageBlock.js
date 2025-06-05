@@ -9,6 +9,8 @@ import MainFormData from '../../../test_data/PlaningAuditPage/MainForm_data.json
 // import UserData from '../../../test_data/PlaningAuditPage/user_data.json';
 // import FacilityData from '../../../test_data/PlaningAuditPage/facility_data.json';
 
+import FilterEmptySections from './FilterEmptySections';
+
 const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
   const [mainData, setMainData] = useState(null);
   const [testData, setTestData] = useState(null);
@@ -41,7 +43,23 @@ const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
   }, []);
 
   const handleSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    // console.log(JSON.stringify(data.auditors))
+    // onSubmit({"auditors":FilterEmptySections(data.auditors)});
+    const final_data_form={
+      "name":data.name,
+      "description":data.description,
+      "facility_id":data.facility_id,
+      "start_datetime":data.start_datetime,
+      "end_datetime":data.end_datetime,
+      "activation":data.activation,
+      "results_access":data.results_access,
+      "audit_leader":data.audit_leader,
+      "test_id":data.test_id,
+      "auditors":FilterEmptySections(data.auditors)
+    }
+    // console.log(final_data_form)
+    
     alert('данные отправлены');
   };
 
