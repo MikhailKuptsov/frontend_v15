@@ -10,8 +10,9 @@ import { BaseUrl } from '../../../../constans/Main_api_url';
 import { Api_audit } from '../../../../constans/Audit_api_url';
 
 import { GetRequest } from '../../../../api/GetRequest';
+import DeleteRequest from '../../../../api/DeleteRequest';
 
-import test_data from "../../../../test_data/MainPage/DropdownBlockPlannedAudits/test_data.json"
+// import test_data from "../../../../test_data/MainPage/DropdownBlockPlannedAudits/test_data.json"
 
 
 
@@ -44,8 +45,11 @@ const DropdownBlockPlannedAudits = () => {
         }
     };
 
-    const handleDeleteAudit = (auditId) => {
+    const handleDeleteAudit = async (auditId) => {
         try {
+            const userData = JSON.parse(sessionStorage.getItem('user_data'));
+            const result = await DeleteRequest(ArrayToString([BaseUrl,Api_audit["Delete"], auditId]), userData.api_session_key );
+            console.log(result.status)
             console.log(`Удалён аудит с ID: ${auditId}`);
             setAudits(audits.filter(audit => audit.id !== auditId));
             alert(`Аудит с ID ${auditId} удалён`);
