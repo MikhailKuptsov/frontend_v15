@@ -13,11 +13,12 @@ const UserDataDisplay = ({ userData }) => {
           <h5 className="card-subtitle mb-2">Логин пользователя: {userData?.username || 'Не указан'}</h5>
         </div>
         <div className="mb-3">
-          <h5 className="card-subtitle mb-2">Имя пользователя: {userData?.name || 'Не указано'}</h5>
+          <h5 className="card-subtitle mb-2">ФИО пользователя: {userData?.surname || 'Не указано'} {userData?.name || 'Не указано'}</h5>
+          {/* <h5 className="card-subtitle mb-2">ФИО пользователя: {userData?.surname || 'Не указано'} {userData?.name || 'Не указано'} {userData?.patronymic || 'Не указано'}</h5> */}
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <h5 className="card-subtitle mb-2">Сессионный ключ пользователя: {userData?.api_session_key || 'Не указан'}</h5>
-        </div>
+        </div> */}
       </Card.Body>
     </Card>
   );
