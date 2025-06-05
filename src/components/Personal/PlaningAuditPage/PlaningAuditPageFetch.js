@@ -49,21 +49,19 @@ export default function PlaningAuditPageFetch(){
     const processedData_facility = JSON.parse(JSON.stringify(dataFacility), (key, value) => {
         return value === null ? "" : value;
     });
-
+    const dataUsersFinal=TransformUsers(processedData_users)
+    const dataFacilityFinal=FormatPlantsArray(processedData_facility)
     if (dataUsers!=null && dataFacility!=null && dataTestDK!=null){
-        const dataUsersFinal=TransformUsers(processedData_users)
-        const dataFacilityFinal=FormatPlantsArray(processedData_facility)
         const dataAuditsDKFinal=TransformAuditData(dataTestDK.data)
         return(
             <>
             {/* <h1>Подгруженные данные по пользователям, заводам, ДК ТОС</h1> */}
-            <p>{JSON.stringify(dataUsersFinal)}</p>
-            {/* <p>{JSON.stringify(dataUsers)}</p> */}
+            {/* <p>{JSON.stringify(dataUsersFinal)}</p>
             <p>--------------------</p>
             <p>{JSON.stringify(dataFacilityFinal)}</p>
             <p>--------------------</p>
-            <p>{JSON.stringify(dataAuditsDKFinal)}</p>
-            {/* <PlaningAuditPageBlock/> */}
+            <p>{JSON.stringify(dataAuditsDKFinal)}</p> */}
+            <PlaningAuditPageBlock UserData={dataUsersFinal} FacilityData={dataFacilityFinal} FormTestData={dataAuditsDKFinal} />
             </>
         )
     }else{

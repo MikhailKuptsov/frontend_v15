@@ -5,11 +5,11 @@ import LoadingStuck from '../../Reuse/LoadingStuck';
 
 
 import MainFormData from '../../../test_data/PlaningAuditPage/MainForm_data.json';
-import FormTestData from '../../../test_data/PlaningAuditPage/FormTest_Data.json';
-import UserData from '../../../test_data/PlaningAuditPage/user_data.json';
-import FacilityData from '../../../test_data/PlaningAuditPage/facility_data.json';
+// import FormTestData from '../../../test_data/PlaningAuditPage/FormTest_Data.json';
+// import UserData from '../../../test_data/PlaningAuditPage/user_data.json';
+// import FacilityData from '../../../test_data/PlaningAuditPage/facility_data.json';
 
-const PlaningAuditPageBlock = () => {
+const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
   const [mainData, setMainData] = useState(null);
   const [testData, setTestData] = useState(null);
   const [userOptions, setUserOptions] = useState([]);

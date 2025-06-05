@@ -75,16 +75,16 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         <Form.Group as={Col} controlId="activation">
           <Form.Label>Активация</Form.Label>
           <Form.Select {...register('activation')}>
-            <option value="choice_start">Сразу после создания</option>
-            <option value="choice_later">Позже</option>
+            <option value="on_demand">По запросу лидера</option>
+            <option value="by_datetime">Автоматически</option>
           </Form.Select>
         </Form.Group>
 
         <Form.Group as={Col} controlId="results_access">
           <Form.Label>Доступ к результатам</Form.Label>
           <Form.Select {...register('results_access')}>
-            <option value="choice_true">Разрешен</option>
-            <option value="choice_false">Запрещен</option>
+            <option value="true">Разрешен</option>
+            <option value="false">Запрещен</option>
           </Form.Select>
         </Form.Group>
       </Row>
@@ -101,9 +101,9 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         </Form.Group>
       </Row>
 
-      <Button variant="primary" type="submit">
+      {/* <Button variant="primary" type="submit">
         Сохранить основные данные
-      </Button>
+      </Button> */}
     </Form>
   );
 };
