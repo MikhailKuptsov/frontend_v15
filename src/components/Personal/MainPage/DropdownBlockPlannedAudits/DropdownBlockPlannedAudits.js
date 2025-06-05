@@ -4,6 +4,17 @@ import AuditCard from './AuditCard';
 import LoadingStuck from '../../../Reuse/LoadingStuck';
 
 
+//Функция объединения 
+import ArrayToString from '../../../../api/api_url_connection';
+import { BaseUrl } from '../../../../constans/Main_api_url';
+import { Api_audit } from '../../../../constans/Audit_api_url';
+
+import { GetRequest } from '../../../../api/GetRequest';
+
+import test_data from "../../../../test_data/MainPage/DropdownBlockPlannedAudits/test_data.json"
+
+
+
 const DropdownBlockPlannedAudits = () => {
     const [audits, setAudits] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -13,14 +24,17 @@ const DropdownBlockPlannedAudits = () => {
         setLoading(true);
         setError(null);
         try {
-
             //Поставить сюда API
+            const userData = JSON.parse(sessionStorage.getItem('user_data'));
+            const result = await GetRequest(ArrayToString([BaseUrl,Api_audit["Get_my_audit"],"future"]), userData.api_session_key );
+            // const data= result.data
+            // setAudits(data.default)
             // Simulate API delay for demonstration
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // await new Promise(resolve => setTimeout(resolve, 1000));
             
-            const data = await import("../../../../test_data/MainPage/DropdownBlockPlannedAudits/test_data.json");
-            // const data= test_data
-            setAudits(data.default);
+            // const data = await import("../../../../test_data/MainPage/DropdownBlockPlannedAudits/test_data.json");
+            // // const data= test_data
+            setAudits(result.data);
         } catch (err) {
             setError('Ошибка загрузки данных');
             console.error(err);
