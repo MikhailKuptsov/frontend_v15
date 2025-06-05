@@ -166,8 +166,10 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                     required
                     disabled={!isEditing && isEditMode}
                 >
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
+                    <option value="Admin">Администратор</option>
+                    <option value="User">Пользователь</option>
+                    <option value="Moderator">Модератор</option>
+                    <option value="Auditor">Аудитор</option>
                 </Form.Select>
             </Form.Group>
 
