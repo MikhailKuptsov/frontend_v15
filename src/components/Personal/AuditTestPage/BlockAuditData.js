@@ -1,9 +1,9 @@
 import React from 'react';
 import AuditDataInfo from './AuditDataInfo';
 import AuditDataStructure from './AuditDataStructure';
-import testData from '../../../test_data/AuditTestPage/test_data.json';
+// import testData from '../../../test_data/AuditTestPage/test_data.json';
 
-const BlockAuditData = () => {
+const BlockAuditData = ({testData}) => {
   return (
     <>
       <AuditDataInfo
