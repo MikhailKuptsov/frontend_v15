@@ -1,6 +1,7 @@
 import MainHeader from "../../components/Reuse/MainHeader"
 import UnderBar from "../../components/Reuse/UnderBar"
-import PlaningAuditPageBlock from "../../components/Personal/PlaningAuditPage/PlaningAuditPageBlock"
+import PlaningAuditPageFetch from "../../components/Personal/PlaningAuditPage/PlaningAuditPageFetch"
+
 
 import "../../styles/Personal/PlaningAuditPage/PlaningAuditPage.css"
 
@@ -9,7 +10,8 @@ export default function PlaningAuditPage(){
         <>
             <MainHeader/>
             <div className="PlaningAuditPage_Block">
-                <PlaningAuditPageBlock/>
+                {/* <PlaningAuditPageBlock/> */}
+                <PlaningAuditPageFetch/>
             </div>
             <UnderBar/>
         </>
