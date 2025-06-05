@@ -4,7 +4,16 @@ import LoadingStuck from '../../../Reuse/LoadingStuck';
 import AuditTabs from './AuditTabs';
 import { changeAuditStatus } from './changeAuditStatus';
 
-// import data_l from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_active.json'
+import data_planing from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_planing.json'
+import data_active from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_active.json'
+
+//Функция объединения 
+import ArrayToString from '../../../../api/api_url_connection';
+import { BaseUrl } from '../../../../constans/Main_api_url';
+import { Api_audit } from '../../../../constans/Audit_api_url';
+
+import { GetRequest } from '../../../../api/GetRequest';
+
 
 export default function DropdownBlockAudits() {
     const [loading, setLoading] = useState(false);
@@ -16,16 +25,14 @@ export default function DropdownBlockAudits() {
         setLoading(true);
         try {
             // Simulate API call by importing JSON files
-            const planing = await import('../../../../test_data/MainPage/DropdownBlockAudits/test_data_planing.json');
-            const active = await import('../../../../test_data/MainPage/DropdownBlockAudits/test_data_active.json');
-            // const active = data_l
-            
-            // Фильтруем данные по статусу
-            const filteredPlaning = planing.default.filter(audit => !audit.is_active);
-            const filteredActive = active.default.filter(audit => audit.is_active);
-            
-            setPlaningData(filteredPlaning);
-            setActiveData(filteredActive);
+            const userData = JSON.parse(sessionStorage.getItem('user_data'));
+            const result_data_planing=await GetRequest(ArrayToString([BaseUrl,Api_audit["Get_my_audit"],"future"]), userData.api_session_key );
+            const result_data_active=await GetRequest(ArrayToString([BaseUrl,Api_audit["Get_my_audit"],"active"]), userData.api_session_key );
+
+            setPlaningData(result_data_planing.data)
+            setActiveData(result_data_active.data)            
+            // setPlaningData(data_planing)
+            // setActiveData(data_active)
             setDataLoaded(true);
         } catch (error) {
             console.error('Error loading audit data:', error);
@@ -60,6 +67,10 @@ export default function DropdownBlockAudits() {
                             test_data_active={activeData} 
                             onStatusChange={handleStatusChange}
                         />
+                        // <>
+                        // <p>{JSON.stringify(planingData)}</p>
+                        // <p>{JSON.stringify(activeData)}</p>
+                        // </>
                     )}
                 </Accordion.Body>
             </Accordion.Item>
