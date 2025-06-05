@@ -1,11 +1,11 @@
 {
-  "name": "Аудит качества",
-  "description": "Проверка стандартов",
+  "name":null,
+  "description": null,
   "facility_id": "6813adb595a4f30837bb250a",
-  "start_datetime": "2023-11-15T09:00",
-  "end_datetime": "2023-11-17T18:00",
-  "activation": "by_datetime",
+  "start_datetime": null,
+  "end_datetime": null,
+  "activation": "by_default",
   "results_access": true, 
-  "audit_leader": "Admin1",
+  "audit_leader": "Admin",
   "test_id": "68164346f3b9566251d93d10"
 }
