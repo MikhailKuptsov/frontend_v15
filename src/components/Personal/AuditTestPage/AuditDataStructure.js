@@ -52,16 +52,16 @@ const AuditDataStructure = ({ data }) => {
   };
 
   const renderLevels = (levels) => {
-    if (Object.keys(levels).some(key => key.startsWith('LEV'))) {
-      return Object.entries(levels).map(([level, questions]) => ({
-        levelKey: level,
-        title: `Уровень ${level.replace('LEV', '')}`,
-        questions
-      }));
-    }
+    // if (Object.keys(levels).some(key => key.startsWith('LEV'))) {
+    //   return Object.entries(levels).map(([level, questions]) => ({
+    //     levelKey: level,
+    //     title: `Уровень ${level.replace('LEV', '')}`,
+    //     questions
+    //   }));
+    // }
     return Object.entries(levels).map(([level, questions]) => ({
       levelKey: level,
-      title: level,
+      title: `Уровень ${level}`,
       questions
     }));
   };
