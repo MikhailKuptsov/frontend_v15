@@ -21,6 +21,7 @@ export default function LoginForm(){
 
     //куда сохраняются данные из формы
     const [data, setData] = useState({ username_or_email: "", password: "" });
+    const [error, setError]=useState(null)
 
     //хук для закрыть/открыть страницу загрузки
     const [isLoading, setIsLoading] = useState(false);
@@ -43,15 +44,22 @@ export default function LoginForm(){
         const result = await PostRequestWithData(ArrayToString([BaseUrl, Api_auth["login"]]), data)
         if(result.error){
             //окно с ошибкой если что случилось
-            alert(result.error)
-            console.log("Post_запрос не выполнен")
-            setIsLoading(false);
+            if (result.status=="401"){
+                // alert(`${result.error}:код:${result.status}`)
+                setError(true)
+                setIsLoading(false);
+            }else{
+                // console.log(typeof result.error)
+                alert(`${result.error}:код:${result.status}`)
+                console.log("Post_запрос авторизации не выполнен")
+                setIsLoading(false);
+            }
         }else{
             sessionStorage.setItem('user_data', JSON.stringify(result.data));
             setIsLoading(false);
             // console.log(result.data)
-            console.log("Post_запрос выполнен")
-            console.log(sessionStorage.getItem('user_data'))
+            console.log("Post_запрос авторизации выполнен")
+            // console.log(sessionStorage.getItem('user_data'))
             navigate('/Main_page')
         }
 
@@ -75,12 +83,12 @@ export default function LoginForm(){
                     <h2>Авторизация</h2>
                 </Card.Header>
                 <Card.Body>
-                    {/* {
+                    {
                         // поле для вывода ошибки при отправке данных
                         error && (
-                        <ErrorMessage message={"ошибка сервера"} num_code={"500"}/>
+                        <ErrorMessage message={"Неверный логин или пароль"}/>
                         )
-                    } */}
+                    }
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Логин:</Form.Label>
