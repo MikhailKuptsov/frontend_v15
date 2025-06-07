@@ -50,7 +50,7 @@ export default function LoginForm(){
                 setIsLoading(false);
             }else{
                 // console.log(typeof result.error)
-                alert(`${result.error}:код:${result.status}`)
+                alert(`Ошибка:${result.error}:код:${result.status}`)
                 console.log("Post_запрос авторизации не выполнен")
                 setIsLoading(false);
             }
