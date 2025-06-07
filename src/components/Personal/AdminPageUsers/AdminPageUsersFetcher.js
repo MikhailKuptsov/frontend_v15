@@ -10,7 +10,8 @@ import { api_users } from "../../../constans/Users_api_url";
 
 import { GetRequest } from "../../../api/GetRequest";
 
-import AdminUserCombine from "./AdminUserCombine";
+// import AdminUserCombine from "./AdminUserCombine";
+import AdminUserCombine from "./AdminPageCombine_v2/AdminUserCombine";
 
 import LoadingStuck from "../../Reuse/LoadingStuck";
 
