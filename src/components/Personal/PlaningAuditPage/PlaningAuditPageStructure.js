@@ -31,9 +31,11 @@ const PlaningAuditPageStructure = ({
       <Tabs
         activeKey={activeTab}
         onSelect={(k) => setActiveTab(k)}
-        className="mb-3"
+        className="custom-tabs"
+        fill
+        // data-bs-theme="dark"
       >
-        <Tab eventKey="main" title="Основные данные">
+        <Tab eventKey="main" title="Основные данные" >
           <FormMainData 
             data={mainData} 
             onChange={handleMainDataChange} 

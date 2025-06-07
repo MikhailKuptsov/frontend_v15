@@ -62,6 +62,7 @@ const AuditDataStructure = ({ data }) => {
     return Object.entries(levels).map(([level, questions]) => ({
       levelKey: level,
       title: `Уровень ${level}`,
+      // title: ` ${level}`,
       questions
     }));
   };
@@ -92,10 +93,12 @@ const AuditDataStructure = ({ data }) => {
                     <Tabs
                       activeKey={activeTabs[tabKey] || levelItems[0].levelKey}
                       onSelect={(k) => handleTabSelect(partName, category, k)}
-                      className="mb-3"
+                      // className="mb-3"
+                      className='custom-tabs'
+                      fill
                     >
                       {levelItems.map(({ levelKey, title, questions }) => (
-                        <Tab key={levelKey} eventKey={levelKey} title={title}>
+                        <Tab key={levelKey} eventKey={levelKey} title={title} >
                           <AuditLevelForm
                             partName={partName}
                             category={category}
