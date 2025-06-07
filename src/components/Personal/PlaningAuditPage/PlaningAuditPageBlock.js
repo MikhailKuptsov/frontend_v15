@@ -19,7 +19,7 @@ import { Api_audit } from '../../../constans/Audit_api_url';
 import { PostRequestsWithHeadersData } from '../../../api/PostRequestsWithHeadersData';
 
 
-const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
+const PlaningAuditPageBlock = ({DK_TOS,UserData, FacilityData, FormTestData }) => {
   const [mainData, setMainData] = useState(null);
   const [testData, setTestData] = useState(null);
   const [userOptions, setUserOptions] = useState([]);
@@ -29,7 +29,7 @@ const PlaningAuditPageBlock = ({UserData, FacilityData, FormTestData }) => {
     // Имитация загрузки данных
     const initialMainData = {
       ...MainFormData,
-      test_id: "68164346f3b9566251d93d10" // фиксированное значение test_id
+      test_id: DK_TOS // фиксированное значение test_id
     };
     
     setMainData(initialMainData);

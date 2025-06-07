@@ -11,6 +11,8 @@ import { api_users } from "../../../constans/Users_api_url";
 import ApiFacility from "../../../constans/Facility_api_url";
 import { Api_test } from "../../../constans/Test_api_url";
 
+import { Audit_DK_version } from "../../../constans/Audit_DK_version/Audit_DK_version";
+
 import { GetRequest } from "../../../api/GetRequest";
 
 import TransformUsers from "../AuditResultPage/TransformUsers";
@@ -29,7 +31,7 @@ export default function PlaningAuditPageFetch(){
             const userData = JSON.parse(sessionStorage.getItem('user_data'));
             const result_users_data = await GetRequest(ArrayToString([BaseUrl,api_users["get_all_users"]]), userData.api_session_key );
             const result_facility_data = await GetRequest(ArrayToString([BaseUrl,ApiFacility["get_all_facility"]]), userData.api_session_key );
-            const result_dk_test_data = await GetRequest(ArrayToString([BaseUrl,Api_test["get"],"68164346f3b9566251d93d10"]), userData.api_session_key );
+            const result_dk_test_data = await GetRequest(ArrayToString([BaseUrl,Api_test["get"], Audit_DK_version]), userData.api_session_key );
             // console.log(ArrayToString([BaseUrl,api_users["get_all_users"]]))
             setDataUsers(result_users_data.data)
             setDataFacility(result_facility_data.data)
@@ -61,7 +63,7 @@ export default function PlaningAuditPageFetch(){
             <p>{JSON.stringify(dataFacilityFinal)}</p>
             <p>--------------------</p>
             <p>{JSON.stringify(dataAuditsDKFinal)}</p> */}
-            <PlaningAuditPageBlock UserData={dataUsersFinal} FacilityData={dataFacilityFinal} FormTestData={dataAuditsDKFinal} />
+            <PlaningAuditPageBlock DK_TOS={Audit_DK_version} UserData={dataUsersFinal} FacilityData={dataFacilityFinal} FormTestData={dataAuditsDKFinal} />
             </>
         )
     }else{

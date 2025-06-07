@@ -51,6 +51,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
             type="text" 
             {...register('name')}
             onChange={(e) => onChange({ name: e.target.value })}
+            required
           />
         </Form.Group>
 
@@ -72,6 +73,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
             options={facilityOptions} 
             placeholder="Выберите объект"
             onChange={(selected) => handleSelectChange('facility_id', selected)}
+            required
           />
         </Form.Group>
 
@@ -81,6 +83,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
             options={userOptions} 
             placeholder="Выберите руководителя"
             onChange={(selected) => handleSelectChange('audit_leader', selected)}
+            required
           />
         </Form.Group>
       </Row>
@@ -92,6 +95,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
             type="datetime-local" 
             {...register('start_datetime')}
             onChange={(e) => onChange({ start_datetime: e.target.value })}
+            required
           />
         </Form.Group>
 
@@ -101,6 +105,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
             type="datetime-local" 
             {...register('end_datetime')}
             onChange={(e) => onChange({ end_datetime: e.target.value })}
+            required
           />
         </Form.Group>
       </Row>
@@ -111,6 +116,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
           <Form.Select 
             {...register('activation')}
             onChange={(e) => onChange({ activation: e.target.value })}
+            required
           >
             <option value="on_demand">По требованию</option>
             <option value="by_datetime">По расписанию</option>
@@ -122,6 +128,7 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
           <Form.Select 
             {...register('results_access')}
             onChange={(e) => onChange({ results_access: e.target.value === "true" })}
+            required
           >
             <option value="true">Дать доступ</option>
             <option value="false">Не давать</option>
@@ -141,9 +148,9 @@ const FormMainData = ({ data, onChange, userOptions, facilityOptions }) => {
         </Form.Group>
       </Row>
 
-      <Button variant="primary" type="submit">
+      {/* <Button variant="primary" type="submit">
         Сохранить основные данные
-      </Button>
+      </Button> */}
     </Form>
   );
 };
