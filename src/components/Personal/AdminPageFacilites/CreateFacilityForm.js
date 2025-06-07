@@ -47,10 +47,10 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
         const userData = JSON.parse(sessionStorage.getItem('user_data'));
         const result = await PostRequestsWithHeadersData(ArrayToString([BaseUrl, ApiFacility["add"]]), formData, userData.api_session_key)
         if (result.error){
-            alert("Данные не изменены",result.error)
+            alert("Пользователь не создан",result.error)
         }else{
             console.log("Создан завод")
-            onSave(formData);
+            onSave(result.data);
         }
     };
 

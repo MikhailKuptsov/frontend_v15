@@ -60,11 +60,10 @@ export default function AdminFacilitiesCombine({ facilities_all_data }) {
                 f.id === selectedFacility.id ? facilityData : f
             ));
         } else {
-            // Создание нового завода
+            // Создание нового заводаz
             console.log('Завод создан:', facilityData);
             setFacilities([...facilities, {
-                ...facilityData,
-                id: Date.now().toString() // Генерируем временный ID
+                ...facilityData
             }]);
         }
         handleBackToList();
