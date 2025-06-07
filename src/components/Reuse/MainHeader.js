@@ -34,8 +34,10 @@ const MainHeader = () => {
     // console.log(ArrayToString([BaseUrl, Api_auth["logout"]]))
     const result = await PostRequestWithHeaders(ArrayToString([BaseUrl, Api_auth["logout"]]), userData.api_session_key)
     if (result.error){
-      alert(`Ошибка выхода. Код ошибки:${result.error}`)
+      alert(`Ошибка выхода. Ошибка:${result.error}. Код ошибки:${result.status}`)
       console.log("Post_запрос не выполнен")
+      sessionStorage.removeItem('user_data');
+      navigate('/Auth_page')
       // setIsLoggingOut(false);
     }else{
       console.log("Post_запрос выполнен")
