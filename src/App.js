@@ -1,5 +1,6 @@
 import AppRoutes from "./routes/router";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./styles/Reuse/tabs_css.css"
 
 function App() {
   return (

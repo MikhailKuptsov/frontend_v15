@@ -24,8 +24,8 @@ const MainHeader = () => {
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const userData = JSON.parse(sessionStorage.getItem('user_data'));
-  // const isAdmin = userData?.role === 'Admin';
-  const isAdmin = true;
+  const isAdmin = userData?.role === 'Admin';
+  // const isAdmin = true;
 
 
   const handleLogout = async () => {

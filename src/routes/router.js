@@ -44,7 +44,6 @@ export default function AppRoutes(){
         <BrowserRouter>
             <Routes>
                 {/* <Route path='*' element={<TestPage/>} /> */}
-                {/* <Route path='/Test_page' element={<TestPage/>} /> */}
                 {/* <Route path='*' element={<AuthPage/>}/> */}
 
                 <Route element={<AuthRoute/>}>
@@ -68,6 +67,7 @@ export default function AppRoutes(){
 
                     <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>
                     <Route path='/audit_page/:audit_id' element={<AuditTestPage/>}/>
+                    <Route path='/Test_page' element={<TestPage/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

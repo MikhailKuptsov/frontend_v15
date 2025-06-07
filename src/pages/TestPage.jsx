@@ -2,6 +2,7 @@ import { BaseUrl } from "../constans/Main_api_url"
 import { Api_auth } from "../constans/Auth_api_url"
 import ArrayToString from "../api/api_url_connection"
 import ProcessData from "../components/Personal/PlaningAuditPage/ProcessData"
+import WarningMainHeader from "../components/Reuse/WarningMainHeader/WarningMainHeader"
 
 // const jsonData = {
 //     "data": {
@@ -26,6 +27,7 @@ function TestPage(){
         <>
         {/* <LoadingStuck/> */}
         {/* <p>{ArrayToString([BaseUrl,Api_auth["login"]])}</p> */}
+        <WarningMainHeader/>
         <h2>Тестовая страница</h2>
         </>
     )

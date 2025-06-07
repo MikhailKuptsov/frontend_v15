@@ -73,7 +73,7 @@ function ChangePasswordModals() {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} size='lg'>
             Отмена
           </Button>
         </Modal.Footer>
