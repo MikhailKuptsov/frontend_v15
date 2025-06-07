@@ -1,5 +1,6 @@
 //компоненты
-import MainHeader from "../../components/Reuse/MainHeader";
+// import MainHeader from "../../components/Reuse/MainHeader";
+import WarningMainHeader from "../../components/Reuse/WarningMainHeader/WarningMainHeader";
 import UnderBar from "../../components/Reuse/UnderBar";
 // import AdminUserCombine from "../../components/Personal/AdminPageUsers/AdminUserCombine"
 
@@ -12,7 +13,8 @@ export default function AdminPageUsers(){
     // const users_all_data = UserFULLdata;
     return(
         <>
-        <MainHeader/>
+        {/* <MainHeader/> */}
+        <WarningMainHeader/>
         <div className="AdminPage_Block">
             <div className="container mt-4">
                 <h1 className="mb-4">Управление пользователями</h1>

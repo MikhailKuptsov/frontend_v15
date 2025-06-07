@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
-import MainHeader from "../../components/Reuse/MainHeader"
+// import MainHeader from "../../components/Reuse/MainHeader"
+import WarningMainHeader from "../../components/Reuse/WarningMainHeader/WarningMainHeader"
 import UnderBar from "../../components/Reuse/UnderBar"
 
 // import AuditPageBlock from "../../components/Personal/AuditTestPage/AuditPageBlock"
@@ -12,7 +13,8 @@ export default function AuditTestPage(){
 
     return(
         <>
-        <MainHeader/>
+        {/* <MainHeader/> */}
+        <WarningMainHeader/>
         <div className="AuditTestPage_Block">
             {/* <h1>страница проведения теста по аудиту: {audit_id}</h1> */}
             {/* <AuditPageBlock/> */}

@@ -51,7 +51,7 @@ const OffcanvasSubSectionsData = ({ data }) => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow} className="mb-4">
+            <Button variant="primary" onClick={handleShow} className="mb-4" size='lg'>
                 Меню ДК ТОС
             </Button>
 
