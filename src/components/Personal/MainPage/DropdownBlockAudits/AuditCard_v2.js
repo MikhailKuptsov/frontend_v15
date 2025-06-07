@@ -50,7 +50,9 @@ export default function AuditCard_v2({
     };
 
     return (
-        <Accordion className="mb-3">
+        <Accordion 
+        // className="mb-3" 
+        className="Dropdown_block_choose_block">
             <Accordion.Item eventKey={id}>
                 <Accordion.Header>
                     <div className="d-flex justify-content-between align-items-center w-100">

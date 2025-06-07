@@ -50,6 +50,7 @@ const RechartChart = ({ right_value }) => {
                 variant="primary" 
                 onClick={() => setShowModal(true)}
                 className="mb-3"
+                size='lg'
             >
                 Показать график результатов
             </Button>

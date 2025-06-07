@@ -31,7 +31,10 @@ const AuditCard = ({
 
     return (
         <>
-            <Accordion className="mb-3">
+            <Accordion 
+            // className="mb-3"
+            className="Dropdown_block_choose_block"
+            >
                 <Accordion.Item eventKey={id}>
                     <Accordion.Header>
                         <div className="d-flex justify-content-between w-100 pe-3">

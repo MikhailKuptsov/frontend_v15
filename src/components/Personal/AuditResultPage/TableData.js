@@ -21,9 +21,9 @@ const TableData = ({ audit_table_data, audit_users_data }) => {
         <div className="mt-4">
             <h2>{audit_table_data.test_name}</h2>
             <p><strong>Завод:</strong> {audit_table_data.facility_name}</p>
-            <p><strong>Версия:</strong> {audit_table_data.name}</p>
+            <p><strong>Название:</strong> {audit_table_data.name}</p>
             <p><strong>Период аудита:</strong> {new Date(audit_table_data.start_datetime).toLocaleDateString()} - {new Date(audit_table_data.end_datetime).toLocaleDateString()}</p>
-            <p><strong>Руководитель аудита:</strong> {audior_name[audit_table_data.audit_leader]}</p>
+            <p><strong>Лидер аудита:</strong> {audior_name[audit_table_data.audit_leader]}</p>
 
             {Object.entries(audit_table_data.results).map(([section, subsections]) => (
                 <div key={section} className="mb-5">

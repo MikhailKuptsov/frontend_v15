@@ -36,7 +36,9 @@ const HistoryAuditCard = ({
 
     return (
         <div className="mb-3">
-            <Accordion>
+            <Accordion
+            className='Dropdown_block_choose_block'
+            >
                 <Accordion.Item eventKey={audit_id}>
                     <Accordion.Header>
                         <div className="d-flex justify-content-between w-100 pe-2">
@@ -68,7 +70,7 @@ const HistoryAuditCard = ({
                         </div>
                         <Button 
                             variant="primary" 
-                            size="sm"
+                            size="lg"
                             onClick={handleSelectClick}
                         >
                             Выбрать
