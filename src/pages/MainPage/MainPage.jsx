@@ -38,24 +38,35 @@ export default function MainPage(){
             <div className="Dropdown_block_choose_block">
                 <DropdownBlockAudits/>
             </div>
-            <div className="Dropdown_block_choose_block">
-                <DropdownBlockPlannedAudits/>
-            </div>
-            <DropdownBlockChoose 
-                info={{
-                lable: "Организовать аудит", 
-                curent_name: "Организация аудита", 
-                link_page: "/Planing_audit_page"
-                }}
-            />
-            <DropdownBlockChoose 
-                info={{
-                lable: "История закрытых аудитов", 
-                curent_name: "Список закрытых аудитов", 
-                link_page: "/History_audit_page"
-                }}
-            />
-
+            {
+                (userDataInfo.role==="Admin"||userDataInfo.role==="Moderator")?
+                <div className="Dropdown_block_choose_block">
+                    <DropdownBlockPlannedAudits/>
+                </div> 
+                : null
+            }
+            {
+                (userDataInfo.role==="Admin"||userDataInfo.role==="Moderator")?
+                <DropdownBlockChoose 
+                    info={{
+                    lable: "Организовать аудит", 
+                    curent_name: "Организация аудита", 
+                    link_page: "/Planing_audit_page"
+                    }}
+                />
+                : null
+            }
+             {
+                (userDataInfo.role==="Admin"||userDataInfo.role==="Moderator")?
+                <DropdownBlockChoose 
+                    info={{
+                    lable: "История закрытых аудитов", 
+                    curent_name: "Список закрытых аудитов", 
+                    link_page: "/History_audit_page"
+                    }}
+                />
+                : null
+            }
             </Container>
         </div>
         <UnderBar/>
