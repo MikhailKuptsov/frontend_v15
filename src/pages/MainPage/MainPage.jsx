@@ -10,6 +10,8 @@ import DropdownBlockChoose from "../../components/Reuse/Dropdown_block_choose";
 import DropdownBlockList from "../../components/Reuse/Dropdown_block_list";
 
 import "../../styles/Personal/MainPage/MainPage.css"
+import DropdownBlockCreateNewAudit from "../../components/Personal/MainPage/PlanningAuditDropdown/DropdownBlockCreateNewAudit";
+
 
 export default function MainPage(){
     const userDataInfo=JSON.parse(sessionStorage.getItem("user_data"))
@@ -47,13 +49,14 @@ export default function MainPage(){
             }
             {
                 (userDataInfo.role==="Admin"||userDataInfo.role==="Moderator")?
-                <DropdownBlockChoose 
-                    info={{
-                    lable: "Организовать аудит", 
-                    curent_name: "Организация аудита", 
-                    link_page: "/Planing_audit_page"
-                    }}
-                />
+                // <DropdownBlockChoose 
+                //     info={{
+                //     lable: "Организовать аудит", 
+                //     curent_name: "Организация аудита", 
+                //     link_page: "/Planing_audit_page"
+                //     }}
+                // />
+                <DropdownBlockCreateNewAudit/>
                 : null
             }
              {

@@ -36,20 +36,24 @@ const PlaningAuditPageStructure = ({
         // data-bs-theme="dark"
       >
         <Tab eventKey="main" title="Основные данные" >
+          <div style={{marginTop:"10px",marginBottom:"10px"}}>
           <FormMainData 
             data={mainData} 
             onChange={handleMainDataChange} 
             userOptions={userOptions}
             facilityOptions={facilityOptions}
           />
+          </div>
         </Tab>
-        <Tab eventKey="test" title="Данные теста">
-          <FormTestData 
-            data={testData} 
-            onChange={handleTestDataChange} 
-            onSubmit={handleSubmit}
-            userOptions={userOptions}
-          />
+        <Tab eventKey="test" title="Аудиторы">
+          <div style={{marginTop:"10px",marginBottom:"10px"}}>
+            <FormTestData 
+              data={testData} 
+              onChange={handleTestDataChange} 
+              onSubmit={handleSubmit}
+              userOptions={userOptions}
+            />
+          </div>
         </Tab>
       </Tabs>
     </div>

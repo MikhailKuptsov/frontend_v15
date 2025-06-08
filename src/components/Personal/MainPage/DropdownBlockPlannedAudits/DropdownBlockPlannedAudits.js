@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Accordion, Button, Row } from 'react-bootstrap';
+import { Accordion, Button, Row, Col } from 'react-bootstrap';
 import AuditCard from './AuditCard';
 import LoadingStuck from '../../../Reuse/LoadingStuck';
 
@@ -63,7 +63,10 @@ const DropdownBlockPlannedAudits = () => {
         <Accordion defaultActiveKey="p">
             <Accordion.Item eventKey="0">
                 <Accordion.Header>
+                    <Col>
                     <Row><h2>Запланированные аудиты</h2></Row>
+                    <Row><p>Список запланированных аудитов.</p></Row> 
+                    </Col>
                     </Accordion.Header>
                 <Accordion.Body>
                     <h5>Список запланированных аудитов</h5>

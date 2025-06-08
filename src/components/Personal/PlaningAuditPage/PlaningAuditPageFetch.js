@@ -11,19 +11,24 @@ import { api_users } from "../../../constans/Users_api_url";
 import ApiFacility from "../../../constans/Facility_api_url";
 import { Api_test } from "../../../constans/Test_api_url";
 
-import { Audit_DK_version } from "../../../constans/Audit_DK_version/Audit_DK_version";
+// import { Audit_DK_version_1 } from "../../../constans/Audit_DK_version/Audit_DK_version";
 
 import { GetRequest } from "../../../api/GetRequest";
 
 import TransformUsers from "../AuditResultPage/TransformUsers";
 import FormatPlantsArray from "./TransformFacility";
 import TransformAuditData from "./TransformAudit";
+import { useParams } from "react-router-dom";
 
 
 export default function PlaningAuditPageFetch(){
     const[dataUsers, setDataUsers]=useState(null)
     const[dataFacility,setDataFacility]=useState(null)
     const[dataTestDK, setDataDk]=useState(null)
+
+    const {test_id}=useParams()
+    // const Audit_DK_version=Audit_DK_version_1
+    const Audit_DK_version=test_id
 
     useEffect(()=>{
         const fetchData = async()=>{

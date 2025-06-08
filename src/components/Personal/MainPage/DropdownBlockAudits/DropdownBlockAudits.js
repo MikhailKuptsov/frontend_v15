@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Accordion, Button } from 'react-bootstrap';
+import { Accordion, Button,Row,Col } from 'react-bootstrap';
 import LoadingStuck from '../../../Reuse/LoadingStuck';
 import AuditTabs from './AuditTabs';
 import { changeAuditStatus } from './changeAuditStatus';
 
-import data_planing from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_planing.json'
-import data_active from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_active.json'
+// import data_planing from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_planing.json'
+// import data_active from '../../../../test_data/MainPage/DropdownBlockAudits/test_data_active.json'
 
 //Функция объединения 
 import ArrayToString from '../../../../api/api_url_connection';
@@ -71,7 +71,11 @@ export default function DropdownBlockAudits() {
         <Accordion defaultActiveKey="p">
             <Accordion.Item eventKey="0">
                 <Accordion.Header>
-                    <h2>Мои аудиты</h2></Accordion.Header>
+                    <Col>
+                    <Row><h2>Мои аудиты</h2></Row>
+                    <Row><p>Список аудитов для прохождения сотрудниками.</p></Row> 
+                    </Col>    
+                </Accordion.Header>
                 <Accordion.Body>
                     <Button 
                     onClick={fetchAuditData} 

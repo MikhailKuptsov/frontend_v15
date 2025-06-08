@@ -64,7 +64,8 @@ export default function AppRoutes(){
 
                     <Route element={<ModeratorRoute/>}>
                         <Route path='/History_audit_page' element={<HistoryAuditPage/>}/>
-                        <Route path='/Planing_audit_page' element={<PlaningAuditPage/>}/>
+                        {/* <Route path='/Planing_audit_page/' element={<PlaningAuditPage/>}/> */}
+                        <Route path='/Planing_audit_page/:test_id' element={<PlaningAuditPage/>}/>
                     </Route>
 
                     <Route path='/Audit_result/:audit_id' element={<AuditResultPage/>}/>

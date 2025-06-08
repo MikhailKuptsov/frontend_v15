@@ -49,7 +49,7 @@ const FormTestData = ({ data, onChange, onSubmit, userOptions }) => {
         ))}
       </Accordion>
 
-      <Button variant="primary" type="submit" className="mt-3">
+      <Button variant="primary" type="submit" className="mt-3" size='lg'>
         Отправить данные
       </Button>
     </Form>
