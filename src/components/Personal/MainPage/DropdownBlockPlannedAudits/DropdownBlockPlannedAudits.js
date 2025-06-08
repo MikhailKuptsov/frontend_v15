@@ -76,7 +76,7 @@ const DropdownBlockPlannedAudits = () => {
                         style={{margin:"5px", width:"100%"}}
                         className="mb-3"
                     >
-                        {loading ? 'Загрузка...' : 'Получить/Обновить данные'}
+                        {loading ? 'Загрузка...' : 'Получить/Обновить данные об аудитах'}
                     </Button>
                     
                     {loading ? (

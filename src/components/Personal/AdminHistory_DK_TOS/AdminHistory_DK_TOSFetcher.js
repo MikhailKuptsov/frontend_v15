@@ -37,14 +37,14 @@ export default function AdminHistory_DK_TOSFetcher(){
             return(
                 <>
                 <p>Пока нету версий Дорожной карты ТОС. Создайте тест.</p>
-                <AdminHistory_DK_TOSBlock versionsdata={AdminHistory_DK_TOS_test}/>
+                {/* <AdminHistory_DK_TOSBlock versionsdata={AdminHistory_DK_TOS_test}/> */}
                 </>
             )
         }else{
         return(
             <>
             {/* <h1>{JSON.stringify(data)}</h1> */}
-            <AdminHistory_DK_TOSBlock versionsdata={AdminHistory_DK_TOS_test}/>
+            <AdminHistory_DK_TOSBlock versionsdata={data}/>
             </>
         )
         }

@@ -16,8 +16,8 @@ export default function AdminPage(){
                 <h1 className="mb-4">Страница администратора</h1>
                 <DropdownBlockChoose info={{lable:"Настройка пользователей", curent_name:"Изменение и создание новых пользователей системы", link_page:"/Admin_page_users"}}/>
                 <DropdownBlockChoose info={{lable:"Настройка заводов", curent_name:"Изменение и добавление новых заводов",link_page:"/Admin_page_facilites"}}/>
-                {/* <DropdownBlockChoose info={{lable:"Версии Дорожной карты ТОС", curent_name:"История версий дорожной карты ТОС", link_page:"/Admin_page_DK_TOS_versions"}}/>
-                <RedactorDKTOSBlock/> */}
+                <DropdownBlockChoose info={{lable:"Версии Дорожной карты ТОС", curent_name:"История версий дорожной карты ТОС", link_page:"/Admin_page_DK_TOS_versions"}}/>
+                <RedactorDKTOSBlock/>
             </div>
         </div>
         <UnderBar/>
