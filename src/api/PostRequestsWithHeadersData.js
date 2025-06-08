@@ -8,7 +8,8 @@ export const PostRequestsWithHeadersData = async (api_request_link, json_data, h
   } catch (error) {
       return { 
         error: error.message, 
-        status: error.response?.status || 500 
+        status: error.response?.status || 500,
+        detail: error.response?.detail
     }
   }
 };

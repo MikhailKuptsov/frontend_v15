@@ -9,6 +9,7 @@ import MainPage from '../pages/MainPage/MainPage'
 import AdminPage from '../pages/AdminPage/AdminPage'
 import AdminPageUsers from '../pages/AdminPage/AdminPageUsers'
 import AdminPageFacilites from '../pages/AdminPage/AdminPageFacilites'
+import AdminHistory_DK_TOS from '../pages/AdminPage/AdminHistory_DK_TOS'
 
 import HistoryAuditPage from '../pages/HistoryAuditPage/HistoryAuditPage'
 import AuditResultPage from '../pages/AuditResultPage/AuditResultPage'
@@ -58,6 +59,7 @@ export default function AppRoutes(){
                         <Route path='/Admin_page' element={<AdminPage/>}/>
                         <Route path='/Admin_page_users' element={<AdminPageUsers/>}/>
                         <Route path='/Admin_page_facilites' element={<AdminPageFacilites/>}/>
+                        <Route path='/Admin_page_DK_TOS_versions' element={<AdminHistory_DK_TOS/>}/>
                     </Route>
 
                     <Route element={<ModeratorRoute/>}>
