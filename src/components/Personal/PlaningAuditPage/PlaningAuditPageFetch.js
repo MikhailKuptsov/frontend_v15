@@ -33,6 +33,11 @@ export default function PlaningAuditPageFetch(){
             const result_facility_data = await GetRequest(ArrayToString([BaseUrl,ApiFacility["get_all_facility"]]), userData.api_session_key );
             const result_dk_test_data = await GetRequest(ArrayToString([BaseUrl,Api_test["get"], Audit_DK_version]), userData.api_session_key );
             // console.log(ArrayToString([BaseUrl,api_users["get_all_users"]]))
+
+            if(result_users_data.error){alert(`Ошибка в подгрузке данных о пользователях. Код ошибки:${result_users_data.status}`)}
+            if(result_facility_data.error){alert(`Ошибка в подгрузке данных о заводах. Код ошибки:${result_facility_data.status}`)}
+            if(result_dk_test_data.error){alert(`Ошибка в подгрузке данных Дорожной карты ТОС. Код ошибки:${result_dk_test_data.status}`)}
+            
             setDataUsers(result_users_data.data)
             setDataFacility(result_facility_data.data)
             setDataDk(result_dk_test_data.data)

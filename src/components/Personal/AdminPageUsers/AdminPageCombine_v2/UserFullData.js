@@ -26,6 +26,7 @@ export default function UserFullData({ user, onSaveChanges, onDelete, onBack }) 
     };
 
     return (
+        <div className='AdminButtonsBlock'>
         <Card className="mt-3">
             <Card.Body>
                 <Card.Title>Полная информация о пользователе</Card.Title>
@@ -128,32 +129,33 @@ export default function UserFullData({ user, onSaveChanges, onDelete, onBack }) 
 
                     {/* Добавьте остальные поля по аналогии */}
                 </Form>
-                <div className="d-flex justify-content-between mt-3">
-                    <Button variant="secondary" onClick={onBack}>
+                <div >
+                    <Button variant="secondary" onClick={onBack} className='AdminButtons' size='lg'>
                         Назад к списку
                     </Button>
 
                     {!isEditing ? (
                         <>
-                            <Button variant="primary" onClick={() => setIsEditing(true)}>
+                            <Button variant="primary" onClick={() => setIsEditing(true)} className='AdminButtons' size='lg'>
                                 Редактировать
                             </Button>
-                            <Button variant="danger" onClick={handleDelete}>
+                            <Button variant="danger" onClick={handleDelete} className='AdminButtons' size='lg'>
                                 Удалить пользователя
                             </Button>
                         </>
                     ) : (
                         <>
-                            <Button variant="success" onClick={handleSave}>
+                            <Button variant="success" onClick={handleSave} className='AdminButtons' size='lg'>
                                 Сохранить изменения
                             </Button>
-                            <Button variant="warning" onClick={handleCancel}>
-                                Отменить
+                            <Button variant="warning" onClick={handleCancel} className='AdminButtons' size='lg'>
+                                Отменить изменения
                             </Button>
                         </>
                     )}
                 </div>
             </Card.Body>
         </Card>
+        </div>
     );
 }

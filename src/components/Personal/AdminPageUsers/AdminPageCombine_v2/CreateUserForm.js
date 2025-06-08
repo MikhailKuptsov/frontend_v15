@@ -61,8 +61,8 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <h2>{isEditMode ? 'Просмотр пользователя' : 'Создание нового пользователя'}</h2>
+        <Form onSubmit={handleSubmit} className='AdminButtonsBlock'>
+            <h3>{isEditMode ? 'Просмотр пользователя' : 'Создание нового пользователя'}</h3>
             
             <Form.Group className="mb-3">
                 <Form.Label>Username</Form.Label>
@@ -162,6 +162,7 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                     type="password"
                     name="password"
                     value={formData.password}
+                    required
                     onChange={handleChange}
                     disabled={!isEditing && isEditMode}
                     placeholder={isEditMode ? "Оставьте пустым для сохранения текущего пароля" : ""}
@@ -169,7 +170,7 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
             </Form.Group>
 
             <div className="d-flex justify-content-between">
-                <Button variant="secondary" onClick={onBack}>
+                <Button variant="secondary" onClick={onBack} size='lg' className='AdminButtons'>
                     Назад
                 </Button>
                 
@@ -180,13 +181,13 @@ export default function CreateUserForm({ user, onSave, onBack, onDelete }) {
                 )}
                 
                 {isEditMode && isEditing && (
-                    <Button variant="warning" onClick={handleRevertChanges}>
+                    <Button variant="warning" onClick={handleRevertChanges} >
                         Вернуть всё как было
                     </Button>
                 )}
                 
                 {(!isEditMode || isEditing) && (
-                    <Button variant="success" type="submit">
+                    <Button variant="success" type="submit" size='lg' className='AdminButtons'>
                         {isEditMode ? 'Сохранить изменения' : 'Создать'}
                     </Button>
                 )}
