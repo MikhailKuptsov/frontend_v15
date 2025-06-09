@@ -6,6 +6,8 @@ import AuditResultPageBlock from "../../../components/Personal/AuditResultPage/A
 
 import testData from "../../../test_data/AuditResultPage/test_data.json"
 
+import ReplaceNullsWithNoticed from "./replaceNullsWithNoticed";
+
 import TransformUsers from "./TransformUsers";
 
 //Функция объединения 
@@ -38,14 +40,16 @@ export default function AuditResultPageFetcher(){
     },[])
 
     if (data!=null && allUsersData!=null){
-        const processedData_1 = JSON.parse(JSON.stringify(data), (key, value) => {
-            return value === null ? "отсутствует" : value;
-        });
+        // const processedData_1 = JSON.parse(JSON.stringify(data), (key, value) => {
+        //     return value === null ? "отсутствует" : value;
+        // });
+        const processedData_1=ReplaceNullsWithNoticed(data)
 
         const processedData_2=JSON.parse(JSON.stringify(allUsersData), (key, value) => {
             return value === null ? "" : value;})
 
         const DataUsers_transform=TransformUsers(processedData_2)
+
         return(
             <>
             {/* <h3>Подгруженные данные</h3> */}

@@ -5,12 +5,12 @@ const TableData = ({ audit_table_data, audit_users_data }) => {
     if (!audit_table_data) return <div>No data available</div>;
 
     const replaceNull = (value) => {
-        return value === null ? "отсутствует" : value;
+        return value === null ? "" : value;
     };
     const audior_name=audit_users_data
 
     const countPositiveResults = (points) => {
-        return Object.values(points).filter(val => val === "Да").length;
+        return (Object.values(points).filter(val => val === "Да").length + Object.values(points).filter(val => val === "Нет").length);
     };
 
     const countTotalPoints = (points) => {

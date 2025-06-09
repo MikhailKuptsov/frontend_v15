@@ -1,10 +1,15 @@
 // src/components/UserFullData.js
 import React, { useState } from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
+import { Button, Card, Form, Modal } from 'react-bootstrap';
 
 export default function UserFullData({ user, onSaveChanges, onDelete, onBack }) {
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({ ...user });
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -139,7 +144,10 @@ export default function UserFullData({ user, onSaveChanges, onDelete, onBack }) 
                             <Button variant="primary" onClick={() => setIsEditing(true)} className='AdminButtons' size='lg'>
                                 Редактировать
                             </Button>
-                            <Button variant="danger" onClick={handleDelete} className='AdminButtons' size='lg'>
+                            {/* <Button variant="danger" onClick={handleDelete} className='AdminButtons' size='lg'>
+                                Удалить пользователя
+                            </Button> */}
+                            <Button variant="danger" onClick={handleShow} className='AdminButtons' size='lg'>
                                 Удалить пользователя
                             </Button>
                         </>
@@ -156,6 +164,28 @@ export default function UserFullData({ user, onSaveChanges, onDelete, onBack }) 
                 </div>
             </Card.Body>
         </Card>
+
+        <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Внимание!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Вы точно хотите <strong>удалить</strong> выбранного пользователя ({formData.surname} {formData.name} {formData.patronymic} - {formData.username}) из системы?</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose} size='lg'>
+            Нет
+          </Button>
+          <Button variant="danger" onClick={handleDelete} size='lg'>Да, удалить пользователя</Button>
+        </Modal.Footer>
+      </Modal>
+
+
         </div>
     );
 }

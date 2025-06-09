@@ -41,6 +41,7 @@ export default function AdminFacilitiesCombine({ facilities_all_data }) {
             alert(`данные о ${id} не удалены. Ошибка ${result.error}`)
         }else{
             console.log(`Завод ${id} удалён из системы`);
+            alert(`Завод ${id} удалён из системы`)
             setFacilities(facilities.filter(facility => facility.id !== id));
             handleBackToList();
         }

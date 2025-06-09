@@ -29,9 +29,18 @@ export default function DropdownBlockAudits() {
             const userData = JSON.parse(sessionStorage.getItem('user_data'));
             const result_data_planing=await GetRequest(ArrayToString([BaseUrl,Api_audit["Get_my_audit"],"future"]), userData.api_session_key );
             const result_data_active=await GetRequest(ArrayToString([BaseUrl,Api_audit["Get_my_audit"],"active"]), userData.api_session_key );
-
-            setPlaningData(result_data_planing.data)
-            setActiveData(result_data_active.data)            
+            if (result_data_planing.error){
+                alert(`Ошибка с подгрузкой данных в планируемых аудитах. ${result_data_planing.error}. Код ошибки: ${result_data_planing.status}`)
+            }else{
+                setPlaningData(result_data_planing.data)
+            }
+            if (result_data_active.error){
+                alert(`Ошибка с подгрузкой данных в активных аудитах. ${result_data_active.error}. Код ошибки: ${result_data_active.status}`)
+            }else{
+                setActiveData(result_data_active.data)  
+            }
+            // setPlaningData(result_data_planing.data)
+            // setActiveData(result_data_active.data)            
             // setPlaningData(data_planing)
             // setActiveData(data_active)
             setDataLoaded(true);

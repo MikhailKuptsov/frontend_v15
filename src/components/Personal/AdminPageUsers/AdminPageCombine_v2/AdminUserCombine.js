@@ -52,6 +52,7 @@ export default function AdminUserCombine({ users_all_data }) {
             alert(`Данные пользователя не изменены. ${result.status} код ошибки ${result.status}`)
         }else{
             console.log("Изменённый пользователь:", updatedUser)
+            alert("Данные о пользователе изменены")
             setUsers(prevUsers => 
                 prevUsers.map(u => 
                     u.username === updatedUser.username ? updatedUser : u

@@ -12,7 +12,7 @@ const AuditResultPageBlock = ({processedData, processedDataUsers}) => {
     return (
         <Container className="py-4">
             <h1 className="mb-4">Результаты аудита {audit_id}</h1>
-            <DataChart data_chart={processedData} />
+            {/* <DataChart data_chart={processedData} /> */}
             <TableData audit_table_data={processedData} audit_users_data={processedDataUsers} />
             
         </Container>

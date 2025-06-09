@@ -1,6 +1,6 @@
 // src/components/CreateFacilityForm.js
 import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button,Modal } from 'react-bootstrap';
 
 //Функция объединения 
 import ArrayToString from "../../../api/api_url_connection";
@@ -19,6 +19,11 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
     const [originalData, setOriginalData] = useState(null);
     const [isEditMode, setIsEditMode] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         if (facility) {
@@ -64,6 +69,7 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
     };
 
     return (
+        <div>
         <Form onSubmit={handleSubmit}>
             <h2>{isEditMode ? 'Просмотр завода' : 'Создание нового завода'}</h2>
             
@@ -136,11 +142,34 @@ export default function CreateFacilityForm({ facility, onSave, onBack, onDelete 
                 )}
                 
                 {isEditMode && (
-                    <Button variant="danger" onClick={onDelete} size="lg" className='AdminButtons'>
+                    // <Button variant="danger" onClick={onDelete} size="lg" className='AdminButtons'>
+                    //     Удалить завод
+                    // </Button>
+                    <Button variant="danger" onClick={handleShow} size="lg" className='AdminButtons'>
                         Удалить завод
                     </Button>
                 )}
             </div>
         </Form>
+        <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+        >
+            <Modal.Header closeButton>
+            <Modal.Title>Внимание!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <p>Вы точно хотите <strong>удалить</strong> выбранный завод ({formData.short_name}- {formData.full_name}) из системы?</p>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose} size='lg'>
+                Нет
+            </Button>
+            <Button variant="danger" onClick={onDelete} size='lg'>Да, удалить завод</Button>
+            </Modal.Footer>
+        </Modal>
+        </div>
     );
 }
