@@ -69,9 +69,9 @@ const AuditDataStructure = ({ data }) => {
 
   const createAnchorId = (text) => {
     return text.toLowerCase()
-      .replace(/[^a-zа-яё0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
-  };
+        .replace(/[^a-zа-яё0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+};
 
   return (
     <div>

@@ -18,36 +18,34 @@ const OffcanvasSubSectionsData = ({ data }) => {
 
     const handleShow = () => setShow(true);
 
-    const createAnchorId = (text) => {
-        return text.toLowerCase().replace(/[^a-zа-яё0-9]+/g, '-').replace(/^-|-$/g, '');
-    };
+   const createAnchorId = (text) => {
+    return text.toLowerCase()
+                .replace(/[^a-zа-яё0-9]+/g, '-')
+                .replace(/^-|-$/g, '');
+        };
 
-    const handleLinkClick = (e, href) => {
-        e.preventDefault();
-        const scrollPosition = window.pageYOffset;
-        handleClose();
-        window.scrollTo(0, scrollPosition);
-        
-        setTimeout(() => {
-            const element = document.querySelector(href);
-            if (element) {
-                const yOffset = -80;
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                
-                window.scrollTo({
-                    top: y,
-                    behavior: 'smooth'
-                });
-                
-                // Исправлено: используем window.history вместо глобальной history
-                if (window.history.pushState) {
+            const handleLinkClick = (e, href) => {
+            e.preventDefault();
+            const scrollPosition = window.pageYOffset;
+            
+            handleClose(); // Сначала закрываем offcanvas
+            
+            setTimeout(() => {
+                const element = document.querySelector(href);
+                if (element) {
+                    const yOffset = -80; // Компенсация для фиксированного header'а если есть
+                    const y = element.getBoundingClientRect().top + scrollPosition + yOffset;
+                    
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Обновляем URL без перезагрузки
                     window.history.pushState(null, null, href);
-                } else {
-                    window.location.hash = href;
                 }
-            }
-        }, 50);
-    };
+            }, 300); // Даем время на анимацию закрытия offcanvas
+        };
 
     return (
         <>
@@ -78,13 +76,13 @@ const OffcanvasSubSectionsData = ({ data }) => {
                             Audit Information
                         </ListGroup.Item>
 
-                        {Object.entries(processedData).map(([section, categories]) => (
+                       {Object.entries(processedData).map(([section, categories]) => (
                             <React.Fragment key={section}>
                                 <ListGroup.Item className="fw-bold">
                                     {section}
                                 </ListGroup.Item>
                                 {categories.map(category => {
-                                    const anchorId = `#${createAnchorId(`${section}-${category}`)}`;
+                                    const anchorId = `#${createAnchorId(section)}-${createAnchorId(category)}`;
                                     return (
                                         <ListGroup.Item 
                                             key={category}
