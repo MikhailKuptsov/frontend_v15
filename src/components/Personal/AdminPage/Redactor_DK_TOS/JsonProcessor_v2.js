@@ -60,6 +60,9 @@ const JsonProcessorV2 = () => {
       setSuccess('Файл успешно загружен и обработан');
       alert('Файл загружен');
     }
+      // console.log('Обработанные данные:', result);
+      // setSuccess('Файл успешно загружен и обработан');
+      // alert('Файл загружен');
   };
 
   return (
