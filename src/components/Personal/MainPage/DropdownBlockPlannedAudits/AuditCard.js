@@ -58,6 +58,20 @@ const AuditCard = ({
                             <p><strong>Окончание:</strong> {formatDate(end_datetime)}</p>
                             <p><strong>Создан:</strong> {formatDate(created_at)}</p>
                         </div>
+                        <Button
+                            variant="warning" 
+                            // onClick={console.log("нажата кнопка Архивировать аудит")}
+                            size="lg"
+                            style={{margin:"5px", width:"100%"}}
+                        >
+                            Архивировать аудит
+                        </Button>
+                        <Button 
+                            variant="dark" 
+                            // onClick={handleDeleteClick}
+                            size="lg"
+                            style={{margin:"5px", width:"100%"}}
+                        >Редактировать аудит</Button>
                         <Button 
                             variant="danger" 
                             onClick={handleDeleteClick}

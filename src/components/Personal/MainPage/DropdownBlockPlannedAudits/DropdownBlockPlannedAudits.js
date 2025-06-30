@@ -69,7 +69,7 @@ const DropdownBlockPlannedAudits = () => {
                     </Col>
                     </Accordion.Header>
                 <Accordion.Body>
-                    <h5>Список запланированных аудитов</h5>
+                    {/* <h5>Список запланированных аудитов</h5> */}
                     
                     <Button 
                         variant="primary" 

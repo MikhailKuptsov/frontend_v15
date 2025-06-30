@@ -16,7 +16,7 @@ export default function AuditTabs({ test_data_planing, test_data_active, onStatu
                     />
                 )):<Alert variant='danger' style={{margin:"10px"}}>У вас нет Запланированных аудитов. Попробуйте обновить данные.</Alert>}
             </Tab>
-            <Tab eventKey="active" title="Активные аудиты">
+            <Tab eventKey="active" title="Текущие аудиты">
                 {(test_data_active.length!=0)? test_data_active.map(audit => (
                     <AuditCard_v2 
                         key={audit.id} 

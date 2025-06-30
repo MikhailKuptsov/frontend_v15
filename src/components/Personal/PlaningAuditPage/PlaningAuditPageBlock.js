@@ -17,6 +17,7 @@ import { BaseUrl } from '../../../constans/Main_api_url';
 import { Api_audit } from '../../../constans/Audit_api_url';
 
 import { PostRequestsWithHeadersData } from '../../../api/PostRequestsWithHeadersData';
+import { useNavigate } from 'react-router-dom';
 
 
 const PlaningAuditPageBlock = ({DK_TOS,UserData, FacilityData, FormTestData }) => {
@@ -24,6 +25,8 @@ const PlaningAuditPageBlock = ({DK_TOS,UserData, FacilityData, FormTestData }) =
   const [testData, setTestData] = useState(null);
   const [userOptions, setUserOptions] = useState([]);
   const [facilityOptions, setFacilityOptions] = useState([]);
+
+   const navigate = useNavigate();
 
   useEffect(() => {
     // Имитация загрузки данных
@@ -73,6 +76,8 @@ const PlaningAuditPageBlock = ({DK_TOS,UserData, FacilityData, FormTestData }) =
       alert(`Данные не отпавлены ошибка ${result_users_data.status}`)
     }else{
       alert('данные отправлены, аудит создан');
+      //редирект на главную страницу сайта при успешном создании аудита
+      navigate('/Main_page')
     }
   };
 
